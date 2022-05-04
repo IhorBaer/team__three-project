@@ -1,0 +1,33 @@
+:root {
+    /* Кольори */
+
+    /* Хедер */
+    --primary-text-header-color: #FFFFFF;
+    --accent-header-color: #FF6B08;
+    --error-text-header-color: #FF001B;
+    --input-line-header-color: #FFFFFF;
+    --accent-button-header-color: #FF6B01;
+
+    /* Основна сторінка */
+    --movie-title-color: #000000;
+    --color-genre: #FF6B08;
+    --color-year: #FF6B08;
+    --color-rating: #FF6B01;
+
+    /* Пагінація */
+    --page-text-color: #000000;
+    --arrow-background-color: #F7F7F7;
+    --current-page-background-color: #FF6B08;
+    
+    /* Футер */
+    --footer-text-color: #545454;
+    --footer-heart-color: #FF6B08;
+    --footer-background-color: #F7F7F7;
+
+    /* Карточка одного фільма (модалка) */
+    --backdrop-color: #000000;
+    --primary-color-text-modal: #000000;
+    --secondary-color-text-modal: #8C8C8C;
+    --accent-background-color-button-modal: #FF6B01;
+    --accent-color-text-button-modal: #FFFFFF;
+}
