@@ -20,7 +20,6 @@
 }
 
 .films-gallery__item {
-    background-color: aqua;
     @media screen and (min-width: 768px) {
         flex-basis: calc(100% / 2 - 32px);
         margin-left: 32px;
