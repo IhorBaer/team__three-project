@@ -1,4 +1,9 @@
 :root {
+
+    /* шрифт */
+
+    --text-main: 'Roboto', sans-serif;
+
     /* Кольори */
 
     /* Хедер */
@@ -7,6 +12,7 @@
     --error-text-header-color: #FF001B;
     --input-line-header-color: #FFFFFF;
     --accent-button-header-color: #FF6B01;
+    --logo-fill: #818181;
 
     /* Основна сторінка */
     --movie-title-color: #000000;
@@ -18,7 +24,7 @@
     --page-text-color: #000000;
     --arrow-background-color: #F7F7F7;
     --current-page-background-color: #FF6B08;
-    
+
     /* Футер */
     --footer-text-color: #545454;
     --footer-heart-color: #FF6B08;
