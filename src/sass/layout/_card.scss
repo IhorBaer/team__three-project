@@ -1,0 +1,85 @@
+// ОБГОРТКА ПОСТЕРУ
+.moviе-item__img {
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+
+    @media screen and (min-width: 768px) {
+   
+        height: 406px;
+    }
+}
+
+// ОБГОРТКА ІНФОРМАЦІЇ ПІД ПОСТЕРОМ
+
+.moviе-stats {
+    margin-bottom: 5px;
+    padding: 10px;
+}
+
+// ЗАГОЛОВОК ФіЛЬМУ
+.moviе-stats__title {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.667;
+    text-transform: uppercase; 
+    color: var(--movie-title-color);
+}
+
+
+
+.moviе-stats__info {
+    display: flex;
+}
+.moviе-genre {
+    display: flex;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    margin-right: 8px;
+    color: var(--color-genre);
+}
+    .moviе-genre__item {
+        margin-right: 5px;
+    }
+
+    .moviе-genre::after {
+        content: '';
+        position: absolute;
+        top: 0px;
+        right: -3px;
+
+        height: 100%;
+        width: 1px;
+
+        background-color: var(--color-rating);
+    }
+
+
+.moviе-year {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    margin-right: 8px;
+
+    color: var(--color-year);
+}
+
+.moviе-vote {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 5px;
+
+    color: var(--primary-text-header-color);
+    background-color: var(--accent-header-color);
+    padding: 0 10px;
+}

@@ -3,7 +3,10 @@ html {
 }
 
 body {
-font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    color: var(--movie-title-color);
+    font-weight: 500;
     height: 100%;
 }
 
@@ -33,6 +36,5 @@ img {
     display: block;
     max-width: 100%;
     height: auto;
-    margin: 0;
 }
 
