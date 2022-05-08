@@ -8,6 +8,12 @@ body {
     color: var(--movie-title-color);
     font-weight: 500;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto;
 }
 
 p,
@@ -37,4 +43,3 @@ img {
     max-width: 100%;
     height: auto;
 }
-
