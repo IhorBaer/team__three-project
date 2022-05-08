@@ -6,9 +6,9 @@ const BASE_URL = 'https://api.themoviedb.org/3/'
 export default class FetchApi {
     constructor() {
         this.page = 1
-        this.searchQuary = ''
+        this.searchQuery = ''
     }
-
+//основна сторінка//
     async getPopularMovies() {
         try {
             const url = `${BASE_URL}movie/popular?api_key=${API_KEY}&page=${this.page}`;
@@ -19,16 +19,49 @@ export default class FetchApi {
         }
 
     }
+//популярні фільми дня//
+    async getTrendingDayMovie(page) {
+        //Можна вкласти функцію спінера тут//
+        try {
+            const urlTrending = `${BASE_URL}trending/movie/day?api_key=${API_KEY}&page=${this.page}`;
+            const trendingMovie = await axios.get(urlTrending);
+            return trendingMovie.data    
+        } catch(error) {
+           
+        }
+    }
+//популярні фільми тижня//
+    async getTrendingWeekMovie(page) {
+        try {
+            const urlTrending = `${BASE_URL}trending/movie/week?api_key=${API_KEY}&page=${this.page}`;
+            const trendingMovie = await axios.get(urlTrending);
+            return trendingMovie.data    
+        } catch(error) {
+           
+        }
+    }
+
+//пошук фільма по слову//
+    async getMovieOnSearch(searchQuery, page) {
+        try {
+            const urlSearch = `${BASE_URL}search/movie?api_key=${API_KEY}&query=${this.searchQuery}&language=en-US&page=${this.page}&include_adult=false`;
+            const movie = await axios.get(urlSearch);
+            return movie.data
+
+        } catch(error) {
+            Notify.info(`Please enter a search word.`)
+        }
+    } 
 
     incrementPage() {
         this.page += 1
     }
 
-    decrementPage() {
+    decrementPage() { 
         this.page -= 1
     }
 
-    resetPage() {
+    resetPage() { 
         this.page = 1;
     }
 

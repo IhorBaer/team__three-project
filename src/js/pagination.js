@@ -1,4 +1,5 @@
-import Pagination from 'tui-pagination';
+
+import { Pagination } from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import MovieApiService from './api/fetch_movies';
 import { refs } from './base/refs'
