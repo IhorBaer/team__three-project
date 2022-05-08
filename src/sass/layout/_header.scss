@@ -41,7 +41,7 @@
     }
 
     @media screen and (min-width: 1024px) {
-    
+
         background-size: 1024px;
         background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
             url('/images/background/home-desktop.jpg');
@@ -62,7 +62,8 @@
     background-size: 320px;
     background-repeat: no-repeat;
     background-position: center;
-background-color: var(--movie-title-color);
+    background-color: var(--movie-title-color);
+
     @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192 dpi),
     screen and (min-resolution: 2dppx) {
@@ -72,7 +73,7 @@ background-color: var(--movie-title-color);
 
     @media screen and (min-width: 768px) {
         background-size: 768px;
-       
+
         background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
             url('/images/background/my-library-tablet.jpg');
 
@@ -86,7 +87,7 @@ background-color: var(--movie-title-color);
 
     @media screen and (min-width: 1024px) {
         background-size: 1024px;
-        
+
         background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
             url('/images/background/my-library-desktop.jpg');
 
@@ -174,15 +175,9 @@ background-color: var(--movie-title-color);
 }
 
 .logo-icon {
+    stroke: var(--logo-fill);
     width: 24px;
     height: 24px;
-    // fill: var(--logo-fill);
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-    // &:hover,
-    // &:focus {
-    //     fill: var(--secondary-active-color);
-    // }
 
     @media screen and (min-width: 768px) {
         margin-right: 10px;
@@ -200,6 +195,16 @@ background-color: var(--movie-title-color);
     margin-bottom: 45px;
     align-items: center;
 }
+
+.logo {
+    // outline: none;
+
+}
+.wrapper-logo {
+padding: 5px;
+    
+}
+
 
 .logo-text {
     font-size: 30px;
@@ -280,10 +285,11 @@ background-color: var(--movie-title-color);
         background-color: var(--accent-header-color);
         border-color: var(--accent-header-color);
     }
- @media screen and (min-width: 768px) {
+
+    @media screen and (min-width: 768px) {
         min-width: 136px;
     }
-  
+
 }
 
 .button_library:not(:last-child) {
