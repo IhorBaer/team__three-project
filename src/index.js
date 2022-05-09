@@ -5,3 +5,5 @@ import './JS/team-modal';
 import './js/api/fetch_movies'
 import './js/render_movies'
 import './js/pagination'
+import './js/auth-modal'
+import './js/authentication'
