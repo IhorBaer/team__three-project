@@ -1,13 +1,22 @@
 // ОБГОРТКА ПОСТЕРУ
-.moviе-item__img {
+.moviе-item__img-container {
     border-radius: 5px;
     overflow: hidden;
     height: 402px;
 
     @media screen and (min-width: 768px) {
-   
-    height: 368px;
+    height: 455px;
     }
+
+    @media screen and (min-width: 1024px) {
+    height: 450px;
+    }
+}
+
+.moviе-item__img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
 }
 
 // ОБГОРТКА ІНФОРМАЦІЇ ПІД ПОСТЕРОМ
