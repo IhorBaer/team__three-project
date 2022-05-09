@@ -26,13 +26,13 @@
     }
 }
 
-.films__gallery-list+.films__gallery-list {
+.films__gallery-item+.films__gallery-item {
     @media screen and (max-width: 767px) {
         margin-top: 20px;
     }
 }
 
-.films__gallery-list {
+.films__gallery-item {
     @media screen and (min-width: 768px) {
         flex-basis: calc(100% / 2 - 32px);
         margin-left: 32px;
