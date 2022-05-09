@@ -42,7 +42,7 @@ export default class FetchApi {
     }
 
 //пошук фільма по слову//
-    async getMovieOnSearch(searchQuery, page) {
+    async getMovieOnSearch() {
         try {
             const urlSearch = `${BASE_URL}search/movie?api_key=${API_KEY}&query=${this.searchQuery}&language=en-US&page=${this.page}&include_adult=false`;
             const movie = await axios.get(urlSearch);
