@@ -36,5 +36,5 @@ export const initPagination = ({ page, itemsPerPage, totalItems }) => {
     };
 }
 
-const pagination = new Pagination(refs.pagination, options)
-paginationSettings.pagination = pagination;
+// const pagination = new Pagination(refs.pagination, options)
+// paginationSettings.pagination = pagination;
