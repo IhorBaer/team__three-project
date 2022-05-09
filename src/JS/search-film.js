@@ -13,7 +13,6 @@ const refs = {
 }
 
 
-
 refs.searchInput.addEventListener(`input`, debounce(onInputSearch, 500));
 refs.btnInput.addEventListener(`click`, fetchResults);
 
@@ -50,19 +49,34 @@ function fetchResults() {
 function renderGallery(films) {
     const markup = films
     .map(({id, poster_path, title, genre_ids, release_date, vote_average}) => {
-        return `<div class="gallery-card">
-        <img 
-        src="https://image.tmdb.org/t/p/original${poster_path}" 
-        alt="${title}" class="gallery-image" data-id=${id}>
-        <h2 class="card-title" data-id="${id}">${title}</h2>
-        <div class="card-content">
-            <div class="card-movie_genres">
-                ${genre_ids}
+        return `<li class='gallery-items films__gallery-list id=${id}'>
+        <a href="https://image.tmdb.org/t/p/original${poster_path}" class="list-card__link">
+            <!-- постер -->
+            <div class='movie-item__img'>
+    
+                <img src="https://image.tmdb.org/t/p/w500${poster_path}"
+                    alt="${title}">
             </div>
-            <span class="card-movie_date">${release_date}</span>
-            <span class="card-movie_rating">${vote_average}</span>
-        </div>
-    </div>`
+
+            <!-- обгортка інформації під постером -->
+            <div class='movie-stats'>
+                <h2 class='movie-stats__title'>${title}</h2>
+                <div class='movie-stats__info'>
+                    <!-- список жанрів -->
+                    <p class='movie-genre'>
+                        ${genre_ids}
+                    </p>
+                    <!-- дата виходу та рейтинг -->
+                    <p class='movie-year'>${release_date}
+                    </p>
+                    <!-- рейтинг -->
+                    <p class='movie-vote'>
+                      ${vote_average}
+                    </p>
+                </div>
+            </div>
+        </a>
+    </li>`
     })
     .join('');
     refs.containerGallery.insertAdjacentHTML(`beforeend`, markup)
