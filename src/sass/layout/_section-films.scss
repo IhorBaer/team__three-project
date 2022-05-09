@@ -31,15 +31,12 @@
     @media screen and (min-width: 1024px) {
         flex-basis: calc(100% / 3 - 15px);
     }
-
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-    &:hover {
-        transform: scale(1.03);
-        box-shadow: 10px 5px 5px rgba(173, 168, 168, 0.671);
-        cursor: pointer;
-    }
 }
+
+
+
+
+
 
 .films__gallery-list+.films__gallery-list {
     @media screen and (max-width: 767px) {
