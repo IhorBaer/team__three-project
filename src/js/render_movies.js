@@ -1,4 +1,6 @@
 import MovieApiService from "./api/fetch_movies";
+import { genres } from "./base/genres";
+import { apiFetch } from "./search-film";
 
 export const movieApiService = new MovieApiService()
 
@@ -11,31 +13,28 @@ movieApiService.getPopularMovies()
 .catch((error => console.log(error)))
 
 
-function renderGalleryFilms(movies) {
+
+function renderGalleryFilms(movies, genres) {
     const markup = movies
-      .map(({ id, backdrop_path, poster_path, title, genre_ids, release_date, vote_average, overview }) => {
-        return `<li class='gallery-items films__gallery-list id=${id}'>
-        <a href="https://image.tmdb.org/t/p/original${poster_path}" class="list-card__link">
+      .map(({ id, poster_path, title, genre_ids, release_date, vote_average }) => {
+        
+        return `<li class='gallery-items films__gallery-item id=${id}'>
+        <a href="#" class="list-card__link">
             <!-- постер -->
-            <div class='movie-item__img'>
+            <div class="moviе-item__img-container">
     
                 <img src="https://image.tmdb.org/t/p/w500${poster_path}"
-                    alt="${title}">
+                    alt="${title}"
+                    class="moviе-item__img"
+                    data-id="id=${id}"/>
             </div>
-
-            <!-- обгортка інформації під постером -->
-            <div class='movie-stats'>
-                <h2 class='movie-stats__title'>${title}</h2>
-                <div class='movie-stats__info'>
-                    <!-- список жанрів -->
-                    <p class='movie-genre'>
-                        ${genre_ids}
+            <div class=""movie-stats">
+                <h2 class="movie-stats__title">${title.toLowerCase()}</h2>
+                <div class="movie-stats__info">
+                    <p class="movie-genre">
+                        ${genre_ids} | ${release_date.split(`-`)[0]}
                     </p>
-                    <!-- дата виходу та рейтинг -->
-                    <p class='movie-year'>${release_date}
-                    </p>
-                    <!-- рейтинг -->
-                    <p class='movie-vote'>
+                    <p class="movie-vote">
                       ${vote_average}
                     </p>
                 </div>
