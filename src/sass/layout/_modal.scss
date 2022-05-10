@@ -1,15 +1,5 @@
-.backdrop {
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.25);
-    position: fixed;
-    top: 0;
-}
-
-.is-hidden {
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
+body.modal-open {
+    overflow: hidden;
 }
 
 .modal {
@@ -18,12 +8,15 @@
     min-height: 940px;
     background-color: #ffffff;
 
-    top: 50%;
+    top: 5%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%);
     padding: 50px 20px 40px 20px;
 
     @media screen and (min-width: 768px) {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         width: 704px;
         min-height: 552px;
         padding: 40px 70px 40px 40px;
@@ -57,11 +50,11 @@
 .modal__close-icon {
     fill: #000000;
 
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-    &:hover,
-    &:focus {
-        fill: #FF6B01;
+    .modal__close-button:hover &,
+    :focus & {
+        fill: var(--accent-background-color-button-modal);
     }
 }
 
@@ -102,7 +95,7 @@
 
     margin-bottom: 20px;
 
-    color: #000000;
+    color: var(--primary-color-text-modal);
 
     @media screen and (min-width: 1024px) {
         font-size: 30px;
@@ -125,7 +118,7 @@ table td {
     font-size: 12px;
     line-height: 1.33;
 
-    color: #8C8C8C;
+    color: var(--secondary-color-text-modal);
 }
 
 .modal__info-value {
@@ -140,7 +133,7 @@ table td {
     text-transform: uppercase;
     margin-left: 40px;
 
-    color: #000000;
+    color: var(--primary-color-text-modal);
 }
 
 .modal__vote {
@@ -152,8 +145,8 @@ table td {
     height: 16px;
     border-radius: 5px;
 
-    background-color: #FF6B01;
-    color: #FFFFFF;
+    background-color: var(--accent-background-color-button-modal);
+    color: var(--accent-color-text-button-modal);
 }
 
 .modal__slash {
@@ -162,7 +155,7 @@ table td {
     margin-right: 5px;
     margin-left: 5px;
 
-    color: #8C8C8C;
+    color: var(--secondary-color-text-modal);
 }
 
 .modal__votes {
@@ -187,7 +180,7 @@ table td {
     align-items: center;
     text-transform: uppercase;
 
-    color: #000000;
+    color: var(--primary-color-text-modal);
 }
 
 .modal__article-about-movie {
@@ -199,7 +192,7 @@ table td {
     font-size: 12px;
     line-height: 1.66;
 
-    color: #000000;
+    color: var(--primary-color-text-modal);
 }
 
 .modal__button-container {
@@ -226,14 +219,14 @@ table td {
 
     border: 1px solid #000000;
     border-radius: 5px;
-    color: #000000;
+    color: var(--primary-color-text-modal);
     background-color: transparent;
 
     &:hover,
     &:focus {
         border: transparent;
-        background-color: #FF6B01;
-        color: #ffffff;
+        background-color: var(--accent-background-color-button-modal);
+        color: var(--accent-color-text-button-modal);
     }
 
     @media screen and (min-width: 768px) {
