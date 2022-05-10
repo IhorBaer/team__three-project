@@ -42,8 +42,8 @@ function modalAddHidden() {
   refs.modal.classList.add('visually-hidden');
 }
 // блокування скрола
-// function scroll() {
-//   const modalIsClose = refs.modal.classList.contains('visually-hidden');
-//   const scrollLockMethod = !modalIsClose ? 'disableBodyScroll' : 'enableBodyScroll';
-//   bodyScrollLock[scrollLockMethod](document.body);
-// }
+function scroll() {
+  const modalIsClose = refs.modal.classList.contains('visually-hidden');
+  const scrollLockMethod = !modalIsClose ? 'disableBodyScroll' : 'enableBodyScroll';
+  bodyScrollLock[scrollLockMethod](document.body);
+}
