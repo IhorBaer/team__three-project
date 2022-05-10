@@ -1,5 +1,8 @@
 import { initializeApp } from 'firebase/app'
 import { getFirestore, collection, getDocs, addDoc, deleteDoc, doc } from 'firebase/firestore'
+import { getAuth, createUserWithEmailAndPassword,  signInWithEmailAndPassword} from 'firebase/auth'
+import Notiflix from 'notiflix';
+export { films };
 
 
 const firebaseConfig = {
@@ -15,13 +18,17 @@ initializeApp(firebaseConfig)
 const db = getFirestore()
 const colRef = collection(db, 'films')
 
+// дані для відмальовування бібліотеки перемінна films 
+// import { films } from "module-name";
+let films = [];
+// console.log(films)
 getDocs(colRef)
     .then((snapshot) => {
-        let films = []
+        // let films = []
         snapshot.docs.forEach((doc) => {
             films.push({...doc.data(), id: doc.id})
         })
-        console.log(films)
+        // console.log(films)
     })
     .catch(err => {
     console.log(err.message)
@@ -48,18 +55,18 @@ document.getElementById('auth-add-js').addEventListener('click', (title, year,
     })
 })
 
-const deleteFilm = document.getElementById('auth-delete-js')
-deleteFilm.addEventListener('click', () => {
-    const filmId = document.querySelector('.moviе-stats__title')
-    const docRef = doc(db, 'films','8wfZd0SKKilPxr1r9pYa')
+// const deleteFilm = document.getElementById('auth-delete-js')
+// deleteFilm.addEventListener('click', () => {
+//     const filmId = document.querySelector('.moviе-stats__title')
+//     const docRef = doc(db, 'films','8wfZd0SKKilPxr1r9pYa')
  
 
-    deleteDoc(docRef)
-        .then(() => {
-        console.log('Delete')
-    })
+//     deleteDoc(docRef)
+//         .then(() => {
+//         console.log('Delete')
+//     })
     
-})
+// })
 
 
 
@@ -76,4 +83,61 @@ deleteFilm.addEventListener('click', () => {
         //     rating: rating.textContent,
         //   });
 
-        // })   
+        // })  
+        
+const auth = getAuth();
+        
+// createUserWithEmailAndPassword(auth, email, password)
+//   .then((userCredential) => {
+//     // Signed in
+//     const user = userCredential.user;
+//     // ...
+//   })
+//   .catch((error) => {
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+//     // ..
+//   });
+            document.getElementById("login").addEventListener('click', function () {
+                const email = document.getElementById('email').value
+                const password = document.getElementById('pass').value
+
+                console.log(email)
+                console.log(password)
+
+              signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                  // Signed in 
+                  const user = userCredential.user;
+                  // ...
+                  Notiflix.Notify.info(`You are logged in ${email}`);
+                })
+                .catch((error) => {
+                  const errorCode = error.code;
+                  const errorMessage = error.message;
+                  window.alert(errorCode + errorMessage);
+                });
+            })
+              
+        document.getElementById("register").addEventListener('click', function(){
+        const email = document.getElementById('email').value
+        const password = document.getElementById('pass').value
+
+        console.log(email)
+        console.log(password)
+
+        createUserWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            // Signed in 
+              const user = userCredential.user;
+              console.log(user)
+            // ...
+            window.alert('Created')
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // ..
+            window.alert(errorCode + errorMessage)
+          });
+      })
