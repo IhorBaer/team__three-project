@@ -1,16 +1,17 @@
-
 <!-- для зміни хедера потрібно замінити клас header__background на header__background-library -->
 
 <header class="header header__background">
   <div class="container">
     <!-- навігація і логотип -->
     <nav class="navigation">
-   
-<a class="logo" href=""><div class="wrapper-logo"><svg class="logo-icon">
-  <use href="./images/sprite.svg#icon-logo"></use>
-</svg>
-<span class="logo-text">Filmoteka</span></div>
-</a>
+      <a class="logo" href=""
+        ><div class="wrapper-logo">
+          <svg class="logo-icon">
+            <use href="./images/sprite.svg#icon-logo"></use>
+          </svg>
+          <span class="logo-text">Filmoteka</span>
+        </div>
+      </a>
 
       <ul class="list navigation__list">
         <li class="navigation__list-item">
@@ -24,31 +25,29 @@
     <!-- форма пошуку -->
     <div class="search-wrapper">
       <form class="search-form">
-        <input class="search-input" type="text" name="query" autocomplete="off" placeholder="Search movies..." />
+        <input
+          class="search-input"
+          type="text"
+          name="query"
+          autocomplete="off"
+          placeholder="Search movies..."
+        />
         <button class="search-button" type="submit">
           <svg class="search-icon">
             <use href="./images/sprite.svg#icon-search"></use>
           </svg>
         </button>
         <!-- попередження -->
-        <div class="warning">
-          Search result not successful. Enter the correct movie name and
-        </div>
+        <div class="warning">Search result not successful. Enter the correct movie name and</div>
       </form>
     </div>
 
-
-<!-- кнопки в My library
+    <!-- кнопки в My library
 клас для активної кнопки
 active-btn -->
-<div class="buttons visually-hidden">
-  <button class="button_library" type="button">
-    Watched
-  </button>
-  <button class="button_library" type="button">
-    Queue
-  </button>
-</div>
-
+    <div class="buttons visually-hidden">
+      <button class="button_library" type="button">Watched</button
+      ><button class="button_library" type="button">Queue</button>
+    </div>
   </div>
 </header>

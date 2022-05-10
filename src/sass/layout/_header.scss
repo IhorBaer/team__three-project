@@ -1,13 +1,14 @@
 .header {
-    padding-top: 46px;
-    padding-bottom: 46px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     height: 230px;
     position: relative;
     margin: 0 auto;
 
     @media screen and (min-width: 768px) {
-        padding-top: 41px;
-        padding-bottom: 41px;
+        height: 215px;
+        padding-top: 45px;
+        padding-bottom: 45px;
     }
 }
 
@@ -21,33 +22,33 @@
     background-position: center;
 
     @media screen and (min-device-pixel-ratio: 2),
-    screen and (min-resolution: 192 dpi),
+    screen and (min-resolution: 192dpi),
     screen and (min-resolution: 2dppx) {
         background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
             url('/images/background/home-mobile@2x.jpg');
     }
 
-    @media screen and (min-width: 768px) {
-        background-size: 768px;
+    @media screen and (min-width: 360px) {
+        background-size: cover;
         background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
             url('/images/background/home-tablet.jpg');
 
         @media screen and (min-device-pixel-ratio: 2),
-        screen and (min-resolution: 192 dpi),
+        screen and (min-resolution: 192dpi),
         screen and (min-resolution: 2dppx) {
             background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
                 url('/images/background/home-tablet@2x.jpg');
         }
     }
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 768px) {
 
         background-size: 1024px;
         background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
             url('/images/background/home-desktop.jpg');
 
         @media screen and (min-device-pixel-ratio: 2),
-        screen and (min-resolution: 192 dpi),
+        screen and (min-resolution: 192dpi),
         screen and (min-resolution: 2dppx) {
             background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
                 url('/images/background/home-desktop@2x.jpg');
@@ -65,34 +66,34 @@
     background-color: var(--movie-title-color);
 
     @media screen and (min-device-pixel-ratio: 2),
-    screen and (min-resolution: 192 dpi),
+    screen and (min-resolution: 192dpi),
     screen and (min-resolution: 2dppx) {
         background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
             url('/images/background/my-library-mobile@2x.jpg');
     }
 
-    @media screen and (min-width: 768px) {
-        background-size: 768px;
+    @media screen and (min-width: 360px) {
+        background-size: cover;
 
         background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
             url('/images/background/my-library-tablet.jpg');
 
         @media screen and (min-device-pixel-ratio: 2),
-        screen and (min-resolution: 192 dpi),
+        screen and (min-resolution: 192dpi),
         screen and (min-resolution: 2dppx) {
             background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
                 url('/images/background/my-library-tablet@2x.jpg');
         }
     }
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 768px) {
         background-size: 1024px;
 
         background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
             url('/images/background/my-library-desktop.jpg');
 
         @media screen and (min-device-pixel-ratio: 2),
-        screen and (min-resolution: 192 dpi),
+        screen and (min-resolution: 192dpi),
         screen and (min-resolution: 2dppx) {
             background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
                 url('/images/background/my-library-desktop@2x.jpg');
@@ -194,6 +195,10 @@
     justify-content: space-between;
     margin-bottom: 45px;
     align-items: center;
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: 27px;
+    }
 }
 
 .logo {
@@ -201,7 +206,7 @@
 
 }
 .wrapper-logo {
-padding: 5px;
+padding: 5px 0;
     
 }
 
@@ -266,7 +271,7 @@ padding: 5px;
 .button_library {
     // width: 130px;
     // height: 44px;
-    padding: 14px 36px;
+    padding: 14px 30px;
     min-width: 130px;
     filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
     cursor: pointer;
@@ -287,7 +292,11 @@ padding: 5px;
     }
 
     @media screen and (min-width: 768px) {
-        min-width: 136px;
+        min-width: 152px;
+    }
+
+    @media screen and (min-width: 768px) {
+        min-width: 148px;
     }
 
 }
