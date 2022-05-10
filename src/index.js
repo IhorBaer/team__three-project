@@ -7,3 +7,4 @@ import './js/render_movies'
 import './js/pagination'
 import './js/auth-modal'
 import './js/authentication'
+import './js/search-film';
