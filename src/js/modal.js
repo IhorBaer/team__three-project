@@ -9,9 +9,12 @@ refs.closeModalBtn.addEventListener('click', onCloseModal);
 refs.backdrop.addEventListener('click', onBackdropClick);
 
 function onOpenModal(event) {
-    if (event.target.nodeName !== 'IMG') {
+    event.preventDefault();
+    
+    if (event.target === event.currentTarget) {
         return;
     }
+
     window.addEventListener('keydown', onEscKeyPress)
     refs.backdrop.classList.remove('is-hidden');
 }
