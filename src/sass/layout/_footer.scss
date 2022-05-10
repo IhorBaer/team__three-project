@@ -28,6 +28,23 @@
     height: 14px;
     width: 16px;
     fill: var(--footer-heart-color);
+    animation: heartbeat .75s infinite;
+    }
+    
+    ;
+    
+    @keyframes heartbeat {
+        0% {
+            transform: scale(1);
+        }
+    
+        20% {
+            transform: scale(1.25);
+        }
+    
+        40% {
+            transform: scale(1.5);
+        }
 }
 
 .footer-left {
