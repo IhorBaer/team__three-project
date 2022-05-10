@@ -28,7 +28,7 @@ function onInputSearch(ev) {
         Notify.info(`Please enter a search word.`)
     }
     if(!searchValue) {
-        clearInfo();
+        clearInput();
     }
     apiFetch.resetPage();
     fetchResults(); 
@@ -87,7 +87,7 @@ function renderGallery(films) {
 function clearSearch() {
     refs.gallery.innerHTML = ``;
 }
-function clearInfo() {
+function clearInput() {
     refs.searchInput.innerHTML = ``;
 }
 
