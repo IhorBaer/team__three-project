@@ -5,7 +5,6 @@ const BASE_URL = 'https://api.themoviedb.org/3/'
 
 export default class FetchApi {
     constructor() {
-
         this.page = 1;
         this.searchQuery = '';
     }
@@ -17,20 +16,8 @@ export default class FetchApi {
             return response.data;
         } catch (error) {
             Notify.failure('Oops, an error')
-            this.searchQuery = ''
-
         }
-        //основна сторінка//
-    async getPopularMovies(page = 1) {
-            try {
-                const url = `${BASE_URL}movie/popular?api_key=${API_KEY}&page=${page}`;
-                const response = await axios.get(url);
-                return response.data;
-            } catch (error) {
-                Notify.failure('Oops, an error')
-            }
-
-        }
+    }
         //популярні фільми дня//
     async getTrendingDayMovie(page = 1) {
             //Можна вкласти функцію спінера тут//
@@ -63,9 +50,19 @@ export default class FetchApi {
         } catch (error) {
             Notify.info(`Please enter a search word.`)
         }
+
     }
 
+    incrementPage() {
+        this.page += 1;
+    }
+    decrementPage() {
+        this.page -= 1;
+    }
+    resetPage() {
+        this.page = 1;
 
+    }
     get query() {
         return this.searchQuery;
     }
