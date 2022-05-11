@@ -1,41 +1,48 @@
+export class Pagination {
+    constructor({ initialPage = 1, total = 1, onChange }) {
+        this._currentPage = initialPage
+        this.total = total
+        this.onChange = onChange
+    }
 
-import { Pagination } from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
-import MovieApiService from './api/fetch_movies';
-import { refs } from './base/refs'
+    get currentPage() {
+        return this._currentPage
+    }
 
-export const paginationSettings = {
-    startPage: 1,
-    searchType: null,
-    pagination: null,
-    totalItemsHome: null,
-}
+    set currentPage(value) {
+        this._currentPage = value
 
-export const initPagination = ({ page, itemsPerPage, totalItems }) => {
-    const options = {
-        page,
-        itemsPerPage,
-        totalItems,
-        visiblePages: 5,
-        centerAlign: true,
-        usageStatistics: false,
-        template: {
-            page: '<a href="#" class="tui-page-btn">{{page}}</a>',
-            currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
-            currentPage: '<a href="#" class="tui-page-btn tui-is-selected">{{page}}</a>',
-            moveButton: '<a href="#" class="tui-page-btn tui-{{type}} hide-{{type}}" >' +
-                // svg
-                '' +
-                '</a>',
-            disabledMoveButton: '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-                '<span class="tui-ico-{{type}}">{{type}}</span>' +
-                '</span>',
-            moreButton: '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip change-{{type}}  ">' +
-                '<svg class="tui-ico-ellip">...</svg>' +
-                '</a>'
+        if (this.onChange) {
+            this.onChange(value)
         }
-    };
-}
 
-// const pagination = new Pagination(refs.pagination, options)
-// paginationSettings.pagination = pagination;
+    }
+
+    incrementPage() {
+        if (this.currentPage === this.total) {
+            return
+        }
+
+        if (this.currentPage === 500) {
+            return
+        }
+
+        this.currentPage += 1
+    }
+
+    decrementPage() {
+        if (this.currentPage === 1) {
+            return
+        }
+
+        this.currentPage -= 1
+    }
+
+    startPage() {
+        this.currentPage = 1;
+    }
+
+    lastPage() {
+        this.currentPage = 500
+    }
+}
