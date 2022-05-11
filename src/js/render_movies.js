@@ -1,8 +1,20 @@
 import MovieApiService from "./api/fetch_movies";
 import { genres } from "./base/genres";
-import { apiFetch } from "./search-film";
+// import { apiFetch } from "./search-film";
+import { refs } from './base/refs'
+import { Pagination } from "./pagination";
 
 export const movieApiService = new MovieApiService()
+
+
+
+const nextPageBtn = refs.nextBtnPag
+const prevPageBtn = refs.prevBtnPag
+const spanPag = refs.spanPag
+const startBtnPag = refs.startBtnPag
+const lastBtnPag = refs.lastBtnPag
+
+
 
 const containerGallery = document.querySelector(`.thumb-gallery`);
 const containerFilms = document.querySelector(`.films__gallery`);
@@ -13,14 +25,16 @@ movieApiService.getPopularMovies()
 
 
 
+
 function renderGalleryFilms(movies) {
     const markup = movies
+
       .map(({ id, poster_path, title, genre_ids, release_date, vote_average }) => {
           const genresId = getGenresName(genre_ids);
         return `<li class="gallery-items films__gallery-item id=${id}">
         <a href="#!" class="list-card__link">
             
-            <div class="moviе-item__img-container">
+     <div class="moviе-item__img-container">
     
                 <img src="https://image.tmdb.org/t/p/w500${poster_path}"
                     alt="${title}"
@@ -43,7 +57,32 @@ function renderGalleryFilms(movies) {
       })
     .join('');
     containerFilms.innerHTML = markup;
-  }
+}
+
+const handlePageChange = (currentPage) => {
+    movieApiService.getPopularMovies(currentPage).then(({ results }) => renderGalleryFilms(results))
+}
+
+const moviePagination = new Pagination({
+    total: 1000,
+    onChange(value) {
+        handlePageChange(value)
+        spanPag.textContent = value
+    }
+})
+
+nextPageBtn.addEventListener('click', () => {
+    moviePagination.incrementPage()
+})
+
+prevPageBtn.addEventListener('click', () => {
+    moviePagination.decrementPage()
+})
+
+startBtnPag.addEventListener('click', () => {
+    moviePagination.startPage()
+})
+
 
 
   //Генерування жанрів//
@@ -64,4 +103,5 @@ function renderGalleryFilms(movies) {
 
 
   
+
 
