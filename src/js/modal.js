@@ -16,12 +16,14 @@ function onOpenModal(event) {
     }
 
     window.addEventListener('keydown', onEscKeyPress)
-    refs.backdrop.classList.remove('is-hidden');
+    refs.backdrop.classList.remove('visually-hidden');
+    document.body.classList.add('modal-open');
 }
 
 function onCloseModal() {
     window.removeEventListener('keydown', onEscKeyPress);
-    refs.backdrop.classList.add('is-hidden');
+    refs.backdrop.classList.add('visually-hidden');
+    document.body.classList.remove('modal-open');
 }
 
 function onBackdropClick(event) {

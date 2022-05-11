@@ -4,11 +4,10 @@ const API_KEY = '9247604179ba4f8029cfb34035e24946'
 const BASE_URL = 'https://api.themoviedb.org/3/'
 
 export default class FetchApi {
-constructor() {
-    this.page = 1;
-    this.query = ``;
-}
-
+    constructor() {
+        this.page = 1;
+        this.searchQuery = '';
+    }
 //основна сторінка//
     async getPopularMovies() {
         try {
@@ -17,7 +16,6 @@ constructor() {
             return response.data;
         } catch (error) {
             Notify.failure('Oops, an error')
-           
         }
     }
         //популярні фільми дня//
@@ -52,6 +50,7 @@ constructor() {
         } catch (error) {
             Notify.info(`Please enter a search word.`)
         }
+
     }
 
     incrementPage() {
@@ -62,6 +61,7 @@ constructor() {
     }
     resetPage() {
         this.page = 1;
+
     }
     get query() {
         return this.searchQuery;
