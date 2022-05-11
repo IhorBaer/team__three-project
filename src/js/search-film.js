@@ -100,7 +100,7 @@ function getGenresName(genre) {
    
 
 
-//Повернення на головну сторінку//
+//Повернення на головну сторінку
 function onHomeButton(ev) {
     ev.preventDefault();
     apiFetch.resetPage();
