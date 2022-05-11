@@ -6,6 +6,8 @@ import { Pagination } from "./pagination";
 
 export const movieApiService = new MovieApiService()
 
+
+
 const nextPageBtn = refs.nextBtnPag
 const prevPageBtn = refs.prevBtnPag
 const spanPag = refs.spanPag
@@ -13,36 +15,39 @@ const startBtnPag = refs.startBtnPag
 const lastBtnPag = refs.lastBtnPag
 
 
+
 const containerGallery = document.querySelector(`.thumb-gallery`);
-const containerFilms = document.querySelector(`.films__gallery`)
+const containerFilms = document.querySelector(`.films__gallery`);
 
 movieApiService.getPopularMovies()
-    .then(({ results }) => renderGalleryFilms(results))
-    .catch((error => console.log(error)))
+.then(({results}) => renderGalleryFilms(results))
+.catch((error => console.log(error)));
 
 
 
-function renderGalleryFilms(movies, genres) {
+
+function renderGalleryFilms(movies) {
     const markup = movies
-        .map(({ id, poster_path, title, genre_ids, release_date, vote_average }) => {
 
-                return `<li class='gallery-items films__gallery-item id=${id}'>
-        <a href="#" class="list-card__link">
-            <!-- постер -->
-            <div class="moviе-item__img-container">
+      .map(({ id, poster_path, title, genre_ids, release_date, vote_average }) => {
+          const genresId = getGenresName(genre_ids);
+        return `<li class="gallery-items films__gallery-item id=${id}">
+        <a href="#!" class="list-card__link">
+            
+     <div class="moviе-item__img-container">
     
                 <img src="https://image.tmdb.org/t/p/w500${poster_path}"
                     alt="${title}"
                     class="moviе-item__img"
                     data-id="id=${id}"/>
             </div>
-            <div class=""movie-stats">
-                <h2 class="movie-stats__title">${title.toLowerCase()}</h2>
-                <div class="movie-stats__info">
-                    <p class="movie-genre">
-                        ${genre_ids} | ${release_date.split(`-`)[0]}
+            <div class="moviе-stats">
+                <h2 class="moviе-stats__title">${title}</h2>
+                <div class="moviе-stats__info">
+                    <p class="moviе-genre">
+                        ${genresId} | ${release_date.split(`-`)[0]}
                     </p>
-                    <p class="movie-vote">
+                    <p class="moviе-vote">
                       ${vote_average}
                     </p>
                 </div>
@@ -78,6 +83,25 @@ startBtnPag.addEventListener('click', () => {
     moviePagination.startPage()
 })
 
-lastBtnPag.addEventListener('click', () => {
-    moviePagination.lastPage()
-})
+
+
+  //Генерування жанрів//
+  function getGenresName(genre) {
+    let genresNames = genre.map(backId =>
+      genres.find(({ id }) => id === backId),
+    );
+    genresNames = [...genresNames.map(({ name }) => name)];
+    if(genresNames.length > 2) {
+      return [...genresNames.slice(0, 2), `Other`]
+    }
+    return genresNames
+  }
+   
+
+
+
+
+
+  
+
+

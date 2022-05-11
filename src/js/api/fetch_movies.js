@@ -5,7 +5,20 @@ const BASE_URL = 'https://api.themoviedb.org/3/'
 
 export default class FetchApi {
     constructor() {
+
+        this.page = 1;
+        this.searchQuery = '';
+    }
+//основна сторінка//
+    async getPopularMovies() {
+        try {
+            const url = `${BASE_URL}movie/popular?api_key=${API_KEY}&page=${this.page}`;
+            const response = await axios.get(url);
+            return response.data;
+        } catch (error) {
+            Notify.failure('Oops, an error')
             this.searchQuery = ''
+
         }
         //основна сторінка//
     async getPopularMovies(page = 1) {
