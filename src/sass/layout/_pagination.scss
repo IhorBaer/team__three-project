@@ -1,7 +1,48 @@
-// для 
+.pagination {
+    margin: 0 auto;
+    margin-bottom: 40px;
+    @media screen and (min-width: 768px) {
+        margin-bottom: 60px;
+    }
+}
 
-.padding {
-    outline: 1px dotted red;
-    background-color: teal;
-    padding: 60px 0px;
+.start-page,
+.prev-page,
+.next-page,
+.last-page {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    margin-right: 5px;
+    background-color: var(--arrow-background-color);
+    cursor: pointer;
+    border: none;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), top 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover {
+        background-color: var(--current-page-background-color);
+        transform: scale(1.1);
+        box-shadow: 0 0 2px var(--current-page-background-color), 0 0 10px var(--current-page-background-color);
+        fill: var( --primary-text-header-color);
+    }
+}
+
+.current-page {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 1.15;
+    text-align: center;
+    letter-spacing: 0.03em;
+    margin: 0 15px;
+}
+
+.double-left-btn,
+.left-btn,
+.right-btn,
+.double-right-btn {
+    width: 16px;
+    height: 16px;
+    fill: var(--page-text-color);
+    &:hover {
+        fill: var( --primary-text-header-color);
+    }
 }

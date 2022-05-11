@@ -1,15 +1,12 @@
-
 @import './utils/variables';
 @import './utils/visually-hidden';
 @import './base/common';
 @import './base/container';
-
 @import './layout/header';
-
 // стилі для main  секції з фільмами
 @import './layout/section-films';
 @import './layout/card';
-// @import './layout/pagination';
+@import './layout/pagination';
 @import './layout/footer';
 @import './layout/modal';
 @import "./components/beckdrop";
