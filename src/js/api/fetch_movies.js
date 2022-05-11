@@ -5,8 +5,8 @@ const BASE_URL = 'https://api.themoviedb.org/3/'
 
 export default class FetchApi {
     constructor() {
-        this.page = 1
-        this.searchQuery = ''
+        this.page = 1;
+        this.searchQuery = '';
     }
 //основна сторінка//
     async getPopularMovies() {
