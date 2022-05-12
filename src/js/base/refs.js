@@ -1,5 +1,5 @@
 export const refs = {
-    pagination_container: document.querySelector('.tui-pagination'),
+    pagination: document.querySelector('.tui-pagination'),
     startBtnPag: document.querySelector('.start-page'),
     prevBtnPag: document.querySelector('.prev-page'),
     spanPag: document.querySelector('.current-page'),
