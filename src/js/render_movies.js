@@ -19,7 +19,7 @@ const lastBtnPag = refs.lastBtnPag
 const containerGallery = document.querySelector(`.thumb-gallery`);
 const containerFilms = document.querySelector(`.films__gallery`);
 
-movieApiService.getPopularMovies()
+movieApiService.getTrendingDayMovie()
 .then(({results}) => renderGalleryFilms(results))
 .catch((error => console.log(error)));
 

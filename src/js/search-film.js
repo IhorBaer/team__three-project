@@ -1,56 +1,43 @@
 import FetchFilmApi from "./api/fetch_movies"
-import Notiflix, { Notify } from "notiflix";
+import {refs} from './base/refs'
+// import Notiflix, { Notify } from "notiflix";
 import debounce from "lodash.debounce";
 import { genres } from "./base/genres";
 
 export const apiFetch = new FetchFilmApi();
 
-
-const refs = {
-    searchInput: document.querySelector(`.search-input`),
-    btnInput: document.querySelector(`.search-button`),
-    gallery: document.querySelector(`.films__gallery`),
-    logoHome: document.querySelector(`#home`)
-}
-
-
-refs.searchInput.addEventListener(`input`, debounce(onInputSearch, 500));
-refs.btnInput.addEventListener(`click`, onInputSearch);
+refs.searchInput.addEventListener('submit', onInputSearch);
 refs.logoHome.addEventListener(`click`, onHomeButton)
-
 
 function onInputSearch(ev) {
     ev.preventDefault()
-    apiFetch.query = ev.target.value;
-    const searchValue = apiFetch.query.trim();
-    
-    console.log(searchValue)
+    apiFetch.searchQuery = ev.target.elements.query.value;
+    const searchValue = apiFetch.searchQuery.trim();
 
-    if(searchValue === ``) {
-        Notify.info(`Please enter a search word.`)
+    if(searchValue === '') {
+        // Notify.info(`Please enter a search word.`)
+        onError();
+        clearInput();
+        return
     }
-    
+    errorIsHidden();
     apiFetch.resetPage();
     fetchResults(); 
-    
-    //Підключити пагініцію //
 }
-
 
 function fetchResults() {
     return apiFetch.getMovieOnSearch()
     .then(({results, total_results}) => {
         if(total_results === 0) {
-            Notify.failure(`Sorry, search result not succesfull.Enter the correct movie name`);
+            // Notify.failure(`Sorry, search result not succesfull.Enter the correct movie name`);
+            onError()
+            clearInput();
             return
         } else {
+            errorIsHidden()
             renderGallery(results);
             clearInput();
-
         }
-        console.log(results)
-        
-        
     })
     
 }
@@ -98,20 +85,25 @@ function getGenresName(genre) {
     return genresNames
   }
    
-
-
 //Повернення на головну сторінку
 function onHomeButton(ev) {
     ev.preventDefault();
     apiFetch.resetPage();
-    clearInput();
-    
+    clearInput(); 
 }
-   
 
 function clearInput() {
-    refs.searchInput.value = ``;
+    refs.searchInput.elements.query.value = '';
 }
 
+function onError() {
+    refs.warning.classList.remove('is-hidden');
+}
 
+function errorIsHidden() {
+    const checkClass = refs.warning.classList.contains('is-hidden')
+    if (checkClass === false) {
+        refs.warning.classList.add('is-hidden')
+    }
+}
 
