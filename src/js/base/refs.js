@@ -6,4 +6,8 @@ export const refs = {
     nextBtnPag: document.querySelector('.next-page'),
     lastBtnPag: document.querySelector('.last-page'),
     gallery_films: document.querySelector('.films__gallery'),
+    warning: document.querySelector('.search-form .warning'),
+    searchInput: document.querySelector('.search-form'),
+    gallery: document.querySelector(`.films__gallery`),
+    logoHome: document.querySelector(`#home`)
 }
