@@ -188,6 +188,10 @@
 .search-icon {
     width: 12px;
     height: 12px;
+    &:hover,
+        &:focus {
+           stroke: var(--accent-header-color);
+        }
 }
 
 .navigation {
@@ -241,9 +245,8 @@ padding: 5px 0;
     color: var(--primary-text-header-color);
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-    &:hover,
-    &:focus {
-        color: var(--accent-button-header-color);
+    &:hover {
+       outline: 1px solid;
     }
 }
 
@@ -256,6 +259,12 @@ padding: 5px 0;
     height: 3px;
     background-color: var(--accent-header-color);
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+
+    &:hover,
+        &:focus {
+        background-color: var(--accent-header-color);
+        }
 }
 
 
