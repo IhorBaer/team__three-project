@@ -99,7 +99,7 @@
     font-family: var(--text-main);
     font-size: 12px;
     font-weight: 500;
-    line-height: calc(16px/12px);
+    line-height: 1.33;
     transition: all 250ms ease-in-out;
     &:hover {
         background: var(--current-page-background-color);
