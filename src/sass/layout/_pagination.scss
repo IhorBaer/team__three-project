@@ -1,48 +1,193 @@
-.pagination {
+// .pagination {
+//     margin: 0 auto;
+//     margin-bottom: 40px;
+//     @media screen and (min-width: 768px) {
+//         margin-bottom: 60px;
+//     }
+// }
+// .start-page,
+// .prev-page,
+// .next-page,
+// .last-page {
+//     width: 40px;
+//     height: 40px;
+//     border-radius: 5px;
+//     margin-right: 5px;
+//     background-color: var(--arrow-background-color);
+//     cursor: pointer;
+//     border: none;
+//     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), top 250ms cubic-bezier(0.4, 0, 0.2, 1);
+//     &:hover {
+//         background-color: var(--current-page-background-color);
+//         transform: scale(1.1);
+//         box-shadow: 0 0 2px var(--current-page-background-color), 0 0 10px var(--current-page-background-color);
+//         fill: var( --primary-text-header-color);
+//     }
+// }
+// .current-page {
+//     font-weight: bold;
+//     font-size: 18px;
+//     line-height: 1.15;
+//     text-align: center;
+//     letter-spacing: 0.03em;
+//     margin: 0 15px;
+// }
+// .double-left-btn,
+// .left-btn,
+// .right-btn,
+// .double-right-btn {
+//     width: 16px;
+//     height: 16px;
+//     fill: var(--page-text-color);
+//     .start-page:hover &,
+//     .start-page:focus &,
+//     .prev-page:hover &,
+//     .prev-page:focus &,
+//     .next-page:hover &,
+//     .next-page:focus &,
+//     .last-page:hover &,
+//     .last-page:focus & {
+//         fill: var(--primary-text-header-color);
+//     }
+// }
+.tui-pagination {
     margin: 0 auto;
     margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    height: 40px;
     @media screen and (min-width: 768px) {
         margin-bottom: 60px;
     }
 }
 
-.start-page,
-.prev-page,
-.next-page,
-.last-page {
-    width: 40px;
-    height: 40px;
-    border-radius: 5px;
-    margin-right: 5px;
-    background-color: var(--arrow-background-color);
-    cursor: pointer;
-    border: none;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), top 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    &:hover {
-        background-color: var(--current-page-background-color);
-        transform: scale(1.1);
-        box-shadow: 0 0 2px var(--current-page-background-color), 0 0 10px var(--current-page-background-color);
-        fill: var( --primary-text-header-color);
+.tui-page-btn.tui-prev.hide-prev,
+.tui-page-btn.tui-first.tui-is-disabled,
+.tui-page-btn.tui-next.hide-next,
+.tui-page-btn.tui-last.tui-is-disabled,
+.tui-page-btn.tui-next-is-ellip.change-next,
+.tui-page-btn.tui-prev-is-ellip.change-prev {
+    display: none;
+}
+
+@media screen and (min-width: 767px) {
+    .tui-page-btn.tui-next-is-ellip.change-next,
+    .tui-page-btn.tui-prev-is-ellip.change-prev {
+        display: flex;
     }
 }
 
-.current-page {
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 1.15;
-    text-align: center;
-    letter-spacing: 0.03em;
-    margin: 0 15px;
+.tui-pagination .tui-next {
+    margin-left: 0;
 }
 
-.double-left-btn,
-.left-btn,
-.right-btn,
-.double-right-btn {
+.tui-pagination .tui-prev {
+    margin-right: 0;
+}
+
+.tui-pagination .tui-page-btn {
+    display: flex;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin-right: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    color: var(--page-text-color);
+    font-family: var(--text-main);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: calc(16px/12px);
+    transition: all 250ms ease-in-out;
+    &:hover {
+        background: var(--current-page-background-color);
+        color: var(--primary-text-header-color);
+    }
+}
+
+.tui-pagination .tui-is-selected {
+    color: var(--primary-text-header-color);
+    background: var(--current-page-background-color);
+    border-color: var(--current-page-background-color);
+}
+
+.tui-pagination .tui-is-disabled:hover {
+    background: transparent;
+    border: none;
+}
+
+.tui-pagination .hide-first,
+.tui-pagination .hide-last {
+    background: rgba(247, 247, 247, 0.5);
+}
+
+.tui-pagination .tui-first-is-ellip:hover,
+.tui-pagination .tui-last-is-ellip:hover,
+.tui-pagination .hide-last:hover,
+.tui-pagination .hide-first:hover {
+    background: var(--current-page-background-color);
+}
+
+.tui-pagination .tui-prev-is-ellip:hover>.tui-ico-ellip,
+.tui-pagination .tui-next-is-ellip:hover>.tui-ico-ellip,
+.tui-pagination .hide-first:hover>.tui-ico-first,
+.tui-pagination .hide-last:hover>.tui-ico-last {
+    fill: var(--primary-text-header-color);
+}
+
+.tui-pagination .tui-is-selected:hover {
+    background: var(--current-page-background-color);
+}
+
+.tui-pagination .tui-ico-ellip {
+    margin-top: 0;
+}
+
+.tui-pagination .tui-first-child.tui-is-selected {
+    border-left: none;
+}
+
+.tui-pagination .tui-ico-prev,
+.tui-pagination .tui-ico-next,
+.tui-pagination .tui-ico-first,
+.tui-pagination .tui-ico-last,
+.tui-pagination .tui-ico-ellip {
+    background-image: none;
+}
+
+.tui-pagination .tui-ico-ellip,
+.tui-pagination .tui-ico-first,
+.tui-pagination .tui-ico-last {
     width: 16px;
     height: 16px;
     fill: var(--page-text-color);
-    &:hover {
-        fill: var( --primary-text-header-color);
+    transition: all 250ms ease-in-out;
+}
+
+.tui-pagination .tui-last-child.tui-is-selected {
+    border-right: 1px solid var(--current-page-background-color);
+}
+
+.tui-first .tui-ico-first {
+    background-image: url(../images/svg-pagination/arrow-left.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    .tui-ico-first:hover,
+    .tui-ico-first:focus {
+        background-image: url(../images/svg-pagination/arrow-left-white.svg);
+    }
+}
+
+.tui-last .tui-ico-last {
+    background-image: url(../images/svg-pagination/arrow-left.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotate(180deg);
+    .tui-ico-last:hover,
+    .tui-ico-last:focus {
+        background-image: url(../images/svg-pagination/arrow-left-white.svg);
+        transform: rotate(180deg);
     }
 }
