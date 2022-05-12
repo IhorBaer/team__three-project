@@ -249,7 +249,9 @@ padding: 5px 0;
        outline: 1px solid;
     }
 }
-
+.current-link {
+  pointer-events: none;
+}
 .current-link::after {
     content: '';
     position: absolute;
