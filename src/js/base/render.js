@@ -2,7 +2,7 @@ import { refs } from './refs';
 import itemsTemplate from '../../template/movie-item.hbs';
 
 export function renderListCard(data) {
-    refs.containerFilms.innerHTML = '';
+    refs.gallery_films.innerHTML = '';
     const markup = itemsTemplate({...data });
-    refs.containerFilms.insertAdjacentHTML('afterbegin', markup);
+    refs.gallery_films.insertAdjacentHTML('afterbegin', markup);
 }
