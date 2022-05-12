@@ -8,6 +8,5 @@ export const refs = {
     gallery_films: document.querySelector('.films__gallery'),
     warning: document.querySelector('.search-form .warning'),
     searchInput: document.querySelector('.search-form'),
-    gallery: document.querySelector(`.films__gallery`),
     logoHome: document.querySelector(`#home`)
 }
