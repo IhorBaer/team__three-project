@@ -1,0 +1,30 @@
+   .scroll {
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       background-color: inherit;
+       width: 50px;
+       height: 50px;
+       position: fixed;
+       bottom: 90px;
+       right: 40px;
+       opacity: 0;
+       visibility: hidden;
+       text-decoration: none;
+       cursor: pointer;
+
+       &.scroll--isShown {
+           opacity: 0.8;
+           visibility: visible;
+           fill: var(--logo-fill);
+       }
+       &:hover, 
+       &:focus {
+           fill: var(--accent-header-color);
+       }
+   }
+
+   .icon__scroll {
+       width: 32px;
+       height: 32px;
+   }
