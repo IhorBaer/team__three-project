@@ -1,6 +1,6 @@
 import FetchFilmApi from "./api/fetch_movies"
 import { refs } from './base/refs'
-// import Notiflix, { Notify } from "notiflix";
+import { Notify } from "notiflix";
 import debounce from "lodash.debounce";
 import { genres } from "./base/genres";
 import { dataFormat } from "./base/data-format";
@@ -18,7 +18,7 @@ async function onInputSearch(ev) {
     const searchValue = apiFetch.searchQuery.trim();
 
     if (searchValue === '') {
-        // Notify.info(`Please enter a search word.`)
+        Notify.failure(`Please enter a search word.`)
         return
     }
 
@@ -29,6 +29,7 @@ async function onInputSearch(ev) {
         )
 
         if (totalItems === 0) {
+            Notify.warning('Nothing found. Please try again')
             return;
         }
 
