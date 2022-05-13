@@ -111,10 +111,9 @@ async function getPopularMoviesData(renderPage) {
         initPagination({
             page,
             itemsPerPage: results.length,
-            totalItems,
+            totalItems: 10000,
         });
 
-        console.dir(totalItems);
         paginationSettings.searchType = 'popular';
         paginationSettings.totalItemsHome = totalItems;
 
