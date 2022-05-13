@@ -40,16 +40,14 @@ export default class FetchApi {
     }
 
     //пошук фільма по слову//
-    async getMovieOnSearch(page) {
-        try {
-            const urlSearch = `${BASE_URL}search/movie?api_key=${API_KEY}&query=${this.searchQuery}&language=en-US&page=${page}&include_adult=false`;
-            const movie = await axios.get(urlSearch);
-            return movie.data
-
-        } catch (error) {
-            // Notify.info(`Please enter a search word.`) 
-        }
-
+    async getMovieOnSearch(query, page) {
+        const movie = await axios.get(`${BASE_URL}search/movie?api_key=${API_KEY}&language=en-US&include_adult=false`, {
+            params: {
+                query: query.length ? query : null,
+                page,
+            },
+        }, )
+        return movie.data
     }
 
     incrementPage() {

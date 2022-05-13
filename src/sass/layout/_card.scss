@@ -3,17 +3,15 @@
     border-radius: 5px;
     overflow: hidden;
     height: 402px;
-
     @media screen and (min-width: 768px) {
-    height: 455px;
+        height: 455px;
     }
-
     @media screen and (min-width: 1024px) {
-    height: 450px;
+        height: 450px;
     }
 }
 
-.moviе-item__img{
+.moviе-item__img {
     // border-radius: 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -23,9 +21,7 @@
 }
 
 // ОБГОРТКА ІНФОРМАЦІЇ ПІД ПОСТЕРОМ
-
 .moviе-stats {
-
     padding: 10px;
 }
 
@@ -34,15 +30,14 @@
     font-weight: 500;
     font-size: 12px;
     line-height: 1.667;
-    text-transform: uppercase; 
+    text-transform: uppercase;
     color: var(--movie-title-color);
 }
-
-
 
 .moviе-stats__info {
     display: flex;
 }
+
 .moviе-genre {
     display: flex;
     font-weight: 500;
@@ -55,31 +50,17 @@
     margin-right: 8px;
     color: var(--color-genre);
 }
-    
-
-    .moviе-genre::after {
-        content: '';
-        position: absolute;
-        top: 0px;
-        right: -3px;
-
-        height: 100%;
-        width: 1px;
-
-        background-color: var(--color-rating);
-    }
-
 
 .moviе-year {
     font-weight: 500;
     font-size: 12px;
     line-height: 16px;
     margin-right: 8px;
-
     color: var(--color-year);
 }
 
 .moviе-vote {
+    margin-left: 4px;
     font-weight: 500;
     font-size: 12px;
     line-height: 14px;
@@ -88,20 +69,15 @@
     text-align: center;
     text-transform: uppercase;
     border-radius: 5px;
-
     color: var(--primary-text-header-color);
     background-color: var(--accent-header-color);
     padding: 0 10px;
 }
 
-
 .list-card__link {
-    
     display: block;
     border-radius: 0 0 10px 10px;
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
     &:hover,
     &:focus {
         transform: scale(1.01);
