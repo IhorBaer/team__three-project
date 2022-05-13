@@ -130,9 +130,9 @@
     @media screen and (min-width: 768px) {
         width: 336px;
     }
-    
+
     &:focus,
-    &:hover{
+    &:hover {
         border-bottom: 0.5px solid var(--accent-header-color);
     }
 }
@@ -150,6 +150,7 @@
     position: relative;
 }
 
+
 .search-button {
     position: absolute;
     top: 0;
@@ -162,6 +163,7 @@
     border: none;
     outline: none;
     cursor: pointer;
+   
 }
 
 
@@ -195,10 +197,11 @@
 .search-icon {
     width: 12px;
     height: 12px;
+
     &:hover,
-        &:focus {
-           stroke: var(--accent-header-color);
-        }
+    &:focus {
+        stroke: var(--accent-header-color);
+    }
 }
 
 .navigation {
@@ -216,9 +219,10 @@
     // outline: none;
 
 }
+
 .wrapper-logo {
-padding: 5px 0;
-    
+    padding: 5px 0;
+
 }
 
 
@@ -240,43 +244,6 @@ padding: 5px 0;
     margin-left: 39px;
 }
 
-.navigation-link {
-    position: relative;
-    font-size: 12px;
-    line-height: 1.16px;
-    height: 14px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    text-transform: uppercase;
-    color: var(--primary-text-header-color);
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-    &:hover {
-       outline: 1px solid;
-    }
-}
-.current-link {
-  pointer-events: none;
-}
-.current-link::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-    width: 100%;
-    height: 3px;
-    background-color: var(--accent-header-color);
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-
-    &:hover,
-        &:focus {
-        background-color: var(--accent-header-color);
-        }
-}
-
-
 
 // кнопки
 .buttons {
@@ -284,6 +251,7 @@ padding: 5px 0;
     // justify-content: center;
     text-align: center;
     margin: 0 auto;
+    cursor: pointer;
 }
 
 .button_library {
@@ -293,9 +261,9 @@ padding: 5px 0;
     min-width: 130px;
     filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
     cursor: pointer;
-    font-size: var(--main-text-size);
+    font-size: 12px;
     line-height: 1.14;
-    text-transform: var(--text-big-letters);
+    text-transform: uppercase;
     background-color: transparent;
     border-radius: 5px;
     border: 1px solid var(--primary-text-header-color);
@@ -313,7 +281,7 @@ padding: 5px 0;
         min-width: 152px;
     }
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 1024px) {
         min-width: 148px;
     }
 
@@ -328,3 +296,75 @@ padding: 5px 0;
     background-color: var(--accent-button-header-color);
     border-color: var(--accent-button-header-color);
 }
+
+// для кнопок в навігації
+// закоментувати в разі використання href
+.navigation-link {
+    padding-left: 0px;
+    padding-right: 0px;
+    font-size: 12px;
+    line-height: 1.16px;
+    height: 14px;
+    border: none;
+    text-transform: uppercase;
+    color: var(--primary-text-header-color);
+    transition: border-bottom 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: transparent;
+    cursor: pointer;
+
+    &:focus,
+    &:hover {
+        padding-bottom: 5px;
+        border-bottom: 3px solid var(--accent-header-color);
+
+    }
+
+}
+
+
+.current-link {
+    padding-bottom: 5px;
+    border-bottom: 3px solid var(--accent-header-color);
+
+}
+
+
+
+//  для посилань в навігації
+// .navigation-link {
+//     position: relative;
+//     font-size: 12px;
+//     line-height: 1.16px;
+//     height: 14px;
+//     display: flex;
+//     align-items: center;
+//     text-align: center;
+//     text-transform: uppercase;
+//     color: var(--primary-text-header-color);
+//     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+//     &:hover {
+//         outline: 1px solid;
+//     }
+// }
+
+// .current-link {
+//     pointer-events: none;
+// }
+
+// .current-link::after {
+//     content: '';
+//     position: absolute;
+//     left: 0;
+//     bottom: -3px;
+//     width: 100%;
+//     height: 3px;
+//     background-color: var(--accent-header-color);
+//     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+
+//     &:hover,
+//     &:focus {
+//         background-color: var(--accent-header-color);
+//     }
+// }
