@@ -10,8 +10,9 @@
 @import './layout/pagination';
 @import './layout/footer';
 @import './layout/modal';
-@import "./components/beckdrop";
-@import "./components/modal-team";
+@import './components/beckdrop';
+@import './components/modal-team';
 // стилі для модального аутенфікації
 @import './components/auth-modal';
-@import "./layout/scroll";
+@import './layout/scroll';
+@import './components/loader';
