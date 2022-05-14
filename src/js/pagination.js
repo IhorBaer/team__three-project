@@ -99,6 +99,14 @@ export const initPagination = ({ page, itemsPerPage, totalItems }) => {
             } catch (error) {
                 console.log(error);
             }
+        } else if (paginationSettings.searchType === 'input') {
+            try {
+                const response = await movieApiService.getMovieOnSearch(paginationSettings.pagination.searchValue, page)
+                const formattedData = dataFormat(response.results, genres)
+                renderListCard(formattedData)
+            } catch (error) {
+                console.log(error);
+            }
         }
     })
 
