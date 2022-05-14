@@ -4,7 +4,6 @@
     height: 230px;
     position: relative;
     margin: 0 auto;
-
     @media screen and (min-width: 768px) {
         height: 215px;
         padding-top: 45px;
@@ -13,90 +12,53 @@
 }
 
 .header__background {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-        url('/images/background/home-mobile.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('/images/background/home-mobile.jpg');
     width: 100%;
     background-repeat: no-repeat;
     background-size: 320px;
     background-color: var(--movie-title-color);
     background-position: center;
-
-    @media screen and (min-device-pixel-ratio: 2),
-    screen and (min-resolution: 192dpi),
-    screen and (min-resolution: 2dppx) {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-            url('/images/background/home-mobile@2x.jpg');
+    @media screen and (min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('/images/background/home-mobile@2x.jpg');
     }
-
     @media screen and (min-width: 360px) {
         background-size: cover;
-        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-            url('/images/background/home-tablet.jpg');
-
-        @media screen and (min-device-pixel-ratio: 2),
-        screen and (min-resolution: 192dpi),
-        screen and (min-resolution: 2dppx) {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-                url('/images/background/home-tablet@2x.jpg');
+        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('/images/background/home-tablet.jpg');
+        @media screen and (min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('/images/background/home-tablet@2x.jpg');
         }
     }
-
     @media screen and (min-width: 768px) {
-
         background-size: 1024px;
-        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-            url('/images/background/home-desktop.jpg');
-
-        @media screen and (min-device-pixel-ratio: 2),
-        screen and (min-resolution: 192dpi),
-        screen and (min-resolution: 2dppx) {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-                url('/images/background/home-desktop@2x.jpg');
+        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('/images/background/home-desktop.jpg');
+        @media screen and (min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('/images/background/home-desktop@2x.jpg');
         }
     }
 }
 
 .header__background-library {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-        url('/images/background/my-library-mobile.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('/images/background/my-library-mobile.jpg');
     width: 100%;
     background-size: 320px;
     background-repeat: no-repeat;
     background-position: center;
     background-color: var(--movie-title-color);
-
-    @media screen and (min-device-pixel-ratio: 2),
-    screen and (min-resolution: 192dpi),
-    screen and (min-resolution: 2dppx) {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-            url('/images/background/my-library-mobile@2x.jpg');
+    @media screen and (min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('/images/background/my-library-mobile@2x.jpg');
     }
-
     @media screen and (min-width: 360px) {
         background-size: cover;
-
-        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-            url('/images/background/my-library-tablet.jpg');
-
-        @media screen and (min-device-pixel-ratio: 2),
-        screen and (min-resolution: 192dpi),
-        screen and (min-resolution: 2dppx) {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-                url('/images/background/my-library-tablet@2x.jpg');
+        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('/images/background/my-library-tablet.jpg');
+        @media screen and (min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('/images/background/my-library-tablet@2x.jpg');
         }
     }
-
     @media screen and (min-width: 768px) {
         background-size: 1024px;
-
-        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-            url('/images/background/my-library-desktop.jpg');
-
-        @media screen and (min-device-pixel-ratio: 2),
-        screen and (min-resolution: 192dpi),
-        screen and (min-resolution: 2dppx) {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-                url('/images/background/my-library-desktop@2x.jpg');
+        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('/images/background/my-library-desktop.jpg');
+        @media screen and (min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url('/images/background/my-library-desktop@2x.jpg');
         }
     }
 }
@@ -124,13 +86,10 @@
     padding-right: 20px;
     color: var(--input-line-header-color);
     border-bottom: 0.5px solid var(--input-line-header-color);
-
     transition: border-bottom 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
     @media screen and (min-width: 768px) {
         width: 336px;
     }
-
     &:focus,
     &:hover {
         border-bottom: 0.5px solid var(--accent-header-color);
@@ -150,7 +109,6 @@
     position: relative;
 }
 
-
 .search-button {
     position: absolute;
     top: 0;
@@ -163,11 +121,11 @@
     border: none;
     outline: none;
     cursor: pointer;
-   
 }
 
-
 .warning {
+    width: 370px;
+    margin-left: 0;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.14;
@@ -178,9 +136,10 @@
     position: absolute;
     margin-top: 22px;
     width: 280px;
-
     @media screen and (min-width: 768px) {
-        width: 390px;
+        width: 370px;
+        margin-top: 10px;
+        margin-left: -15px;
     }
 }
 
@@ -188,7 +147,6 @@
     stroke: var(--logo-fill);
     width: 24px;
     height: 24px;
-
     @media screen and (min-width: 768px) {
         margin-right: 10px;
     }
@@ -197,7 +155,6 @@
 .search-icon {
     width: 12px;
     height: 12px;
-
     &:hover,
     &:focus {
         stroke: var(--accent-header-color);
@@ -209,7 +166,6 @@
     justify-content: space-between;
     margin-bottom: 45px;
     align-items: center;
-
     @media screen and (min-width: 768px) {
         margin-bottom: 27px;
     }
@@ -217,20 +173,16 @@
 
 .logo {
     // outline: none;
-
 }
 
 .wrapper-logo {
     padding: 5px 0;
-
 }
-
 
 .logo-text {
     font-size: 30px;
     line-height: 1.16px;
     color: var(--primary-text-header-color);
-
     @media screen and (max-width: 767px) {
         display: none;
     }
@@ -243,7 +195,6 @@
 .navigation__list :not(:first-child) {
     margin-left: 39px;
 }
-
 
 // кнопки
 .buttons {
@@ -270,21 +221,17 @@
     outline: none;
     color: var(--primary-text-header-color);
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
     &:focus,
     &:hover {
         background-color: var(--accent-header-color);
         border-color: var(--accent-header-color);
     }
-
     @media screen and (min-width: 768px) {
         min-width: 152px;
     }
-
     @media screen and (min-width: 1024px) {
         min-width: 148px;
     }
-
 }
 
 .button_library:not(:last-child) {
@@ -311,24 +258,17 @@
     transition: border-bottom 250ms cubic-bezier(0.4, 0, 0.2, 1);
     background-color: transparent;
     cursor: pointer;
-
     &:focus,
     &:hover {
         padding-bottom: 5px;
         border-bottom: 3px solid var(--accent-header-color);
-
     }
-
 }
-
 
 .current-link {
     padding-bottom: 5px;
     border-bottom: 3px solid var(--accent-header-color);
-
 }
-
-
 
 //  для посилань в навігації
 // .navigation-link {
@@ -342,16 +282,13 @@
 //     text-transform: uppercase;
 //     color: var(--primary-text-header-color);
 //     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
 //     &:hover {
 //         outline: 1px solid;
 //     }
 // }
-
 // .current-link {
 //     pointer-events: none;
 // }
-
 // .current-link::after {
 //     content: '';
 //     position: absolute;
@@ -361,8 +298,6 @@
 //     height: 3px;
 //     background-color: var(--accent-header-color);
 //     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-
 //     &:hover,
 //     &:focus {
 //         background-color: var(--accent-header-color);
