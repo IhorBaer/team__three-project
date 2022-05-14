@@ -37,25 +37,25 @@ export default class FetchApi {
     } catch (error) {}
   }
 
-
-
-    //пошук фільма по слову//
-    async getMovieOnSearch(query, page) {
-        const movie = await axios.get(`${BASE_URL}search/movie?api_key=${API_KEY}&language=en-US&include_adult=false`, {
-            params: {
-                query: query.length ? query : null,
-                page,
-            },
-        }, )
-        return movie.data
-    }
+  //пошук фільма по слову//
+  async getMovieOnSearch(query, page) {
+    const movie = await axios.get(
+      `${BASE_URL}search/movie?api_key=${API_KEY}&language=en-US&include_adult=false`,
+      {
+        params: {
+          query: query.length ? query : null,
+          page,
+        },
+      },
+    );
+    return movie.data;
   }
 
   async getMovieInFoBuyId() {
     try {
       const url = `https://api.themoviedb.org/3/movie/${this.id}?api_key=${API_KEY}&language=en-US`;
       const response = await axios.get(url);
-    //   console.log(response.data);
+      //   console.log(response.data);
       return response.data;
     } catch (error) {
       // Notify.info(`Please enter a search word.`)
