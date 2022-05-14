@@ -48,7 +48,7 @@ export default class FetchApi {
     }
   }
 
-  async getMovieInFoBuyId(id) {
+  async getMovieInFoBuyId() {
     try {
       const url = `https://api.themoviedb.org/3/movie/${this.id}?api_key=${API_KEY}&language=en-US`;
       const response = await axios.get(url);
