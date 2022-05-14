@@ -7,6 +7,7 @@ import { dataFormat } from "./base/data-format";
 import { renderListCard } from "./base/render";
 import { paginationSettings } from "./pagination";
 
+
 export const apiFetch = new FetchFilmApi();
 
 refs.searchInput.addEventListener('submit', onInputSearch);
@@ -29,16 +30,18 @@ async function onInputSearch(ev) {
         )
 
         if (totalItems === 0) {
-            Notify.warning('Nothing found. Please try again')
+            Notify.failure('Nothing found. Please try again')
             return;
         }
 
         paginationSettings.pagination.reset(totalItems);
-        paginationSettings.searchValue = searchValue;
+        paginationSettings.pagination.searchValue = searchValue;
         paginationSettings.searchType = 'input';
+
         const formattedData = dataFormat(results, genres);
         renderListCard(formattedData);
-        console.log(formattedData);
+
+        console.log(paginationSettings.pagination.searchValue = searchValue);
     } catch (error) {
         console.log(error);
     }
