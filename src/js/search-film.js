@@ -29,12 +29,12 @@ async function onInputSearch(ev) {
         )
 
         if (totalItems === 0) {
-            Notify.warning('Nothing found. Please try again')
+            Notify.failure('Nothing found. Please try again')
             return;
         }
 
         paginationSettings.pagination.reset(totalItems);
-        paginationSettings.searchValue = searchValue;
+        paginationSettings.pagination.searchValue = searchValue;
         paginationSettings.searchType = 'input';
         const formattedData = dataFormat(results, genres);
         renderListCard(formattedData);
