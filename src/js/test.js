@@ -7,10 +7,10 @@ const form = document.querySelector('.search-wrapper');
 const refHeader = document.querySelector('.header__background'); 
 
 const refHome = document.getElementById('home');
-console.log(refHome);
+// console.log(refHome);
 
 const refLibrary= document.getElementById('library');
-console.log(refLibrary);
+// console.log(refLibrary);
 
 refLibrary.addEventListener('click', event => {
  event.preventDefault();
