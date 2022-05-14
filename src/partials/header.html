@@ -3,7 +3,7 @@
   <div class="container">
     <!-- навігація і логотип -->
     <nav class="navigation">
-      <a class="logo" href=""
+      <a class="logo" aria-label="logo of Filmoteka" href=""
         ><div class="wrapper-logo">
           <svg class="logo-icon">
             <use href="./images/sprite.svg#icon-logo"></use>
@@ -15,11 +15,11 @@
       <ul class="list navigation__list">
         <li class="navigation__list-item">
           <!-- <a class="link navigation-link current-link" id="home" href="">Home</a> -->
-          <button class="navigation-link current-link" type="button" id="home">Home</button>
+          <button class="navigation-link current-link" aria-label="main page switch" type="button" id="home">Home</button>
         </li>
         <li class="navigation__list-link">
           <!-- <a class="link navigation-link" id="library" href="">My library</a> -->
-          <button class="navigation-link" type="button" id="library">My library</button>
+          <button class="navigation-link" aria-label="library page switch" type="button" id="library">My library</button>
         </li>
       </ul>
     </nav>
@@ -33,7 +33,7 @@
           autocomplete="off"
           placeholder="Search movies..."
         />
-        <button class="search-button" type="submit">
+        <button class="search-button" aria-label="search films" type="submit">
           <svg class="search-icon">
             <use href="./images/sprite.svg#icon-search"></use>
           </svg>
