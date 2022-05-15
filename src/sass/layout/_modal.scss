@@ -251,3 +251,37 @@ table td {
         }
     }
 }
+
+.modal__button-disabled {
+    width: 110px;
+    min-height: 44px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+
+    text-transform: uppercase;
+    cursor: pointer;
+
+    border: 1px solid var(--secondary-color-text-modal);
+    border-radius: 5px;
+    color: var(--primary-color-text-modal);
+    background-color: var(--secondary-color-text-modal);
+
+
+    @media screen and (min-width: 768px) {
+        width: 125px;
+        height: 40px;
+    }
+
+    @media screen and (min-width: 1024px) {
+        width: 136px;
+        height: 44px;
+
+        &:not(:last-child) {
+            margin-right: 15px;
+        }
+    }
+}

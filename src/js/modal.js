@@ -5,9 +5,9 @@ import { initializeApp } from 'firebase/app'
 import { getFirestore, collection, getDocs, addDoc, deleteDoc, doc } from 'firebase/firestore'
 import Notiflix from 'notiflix';
 import {
-    getAuth, createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    getMultiFactorResolver, onAuthStateChanged
+  getAuth, createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  getMultiFactorResolver, onAuthStateChanged
 } from 'firebase/auth'
 import { userEmail } from './authentication';
 import { renderListCard } from './base/render';
@@ -61,11 +61,17 @@ async function onOpenModal(event) {
   console.log(film)
   refs.modal.insertAdjacentHTML('afterbegin', makeFilmModalMarkup(film));
 
-const btnW = document.querySelector('.btnW').addEventListener('click', () => {
-  // btnW.setAttribute('disabled', true)
-  // textContent = 'DELETE '
+  const btnW = document.querySelector('.btnW');
 
- 
+  btnW.addEventListener('click', () => {
+    btnW.setAttribute('disabled', true);
+
+    btnW.classList.remove('modal__button');
+    btnW.classList.add('modal__button-disabled');
+    btnW.textContent = 'in the watched';
+    // textContent = 'DELETE '
+
+
     addDoc(colRef, {
       genre_ids: film.genres,
       poster_path: film.poster_path,
@@ -79,16 +85,22 @@ const btnW = document.querySelector('.btnW').addEventListener('click', () => {
     })
       .then(() => {
         Notiflix.Notify.info('ADD FILM TO WATCHED')
-   
-      }).catch(err => {
-      console.log(err.message);
-    });
-})
-    
-  const btnQ = document.querySelector('.btnQ').addEventListener('click', () => {
 
-// if(film.id == db.films){return}  
- console.log(film.id)
+      }).catch(err => {
+        console.log(err.message);
+      });
+  })
+
+  const btnQ = document.querySelector('.btnQ');
+  btnQ.addEventListener('click', () => {
+    btnQ.setAttribute('disabled', true);
+
+    btnQ.classList.remove('modal__button');
+    btnQ.classList.add('modal__button-disabled');
+    btnQ.textContent = 'in the queue';
+
+    // if(film.id == db.films){return}  
+    console.log(film.id)
     addDoc(colRef, {
       genre_ids: film.genres,
       poster_path: film.poster_path,
@@ -102,11 +114,11 @@ const btnW = document.querySelector('.btnW').addEventListener('click', () => {
     })
       .then(() => {
         Notiflix.Notify.info('ADD FILM TO QUEUE')
-   
+
       }).catch(err => {
-      console.log(err.message);
-    });
-})
+        console.log(err.message);
+      });
+  })
 
 }
 
