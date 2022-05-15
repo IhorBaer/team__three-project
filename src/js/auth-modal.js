@@ -10,11 +10,13 @@ const refs = {
 refs.openModal.addEventListener('click', openModal);
 
 function closeModal(e) {
-  modalAddHidden();
-  refs.closeModalBtn.removeEventListener('click', closeModal);
-  refs.modal.removeEventListener('click', onBackdropClick);
-  refs.body.removeEventListener('keydown', onEscClick);
-  scroll();
+  if (userEmail) {
+    modalAddHidden();
+    refs.closeModalBtn.removeEventListener('click', closeModal);
+    refs.modal.removeEventListener('click', onBackdropClick);
+    refs.body.removeEventListener('keydown', onEscClick);
+    scroll();
+  }
 }
 function openModal() {
   if (userEmail == false) {
