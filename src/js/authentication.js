@@ -23,7 +23,7 @@ export let userEmail = ""
 const dataData = new FetchApi()
 const modal = document.querySelector('.auth-modal')
 const openModal = document.querySelector('.open_auth-js')
-    // console.log(openModal)
+// console.log(openModal)
 
 // const firebaseConfig = {
 //     apiKey: "AIzaSyCgHWVD37iS9SyzyjybiROGSJgrZBuPF74",
@@ -35,13 +35,13 @@ const openModal = document.querySelector('.open_auth-js')
 // };
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyBzIGGSufXWhiy2amlL_ka5f0X-VeLnSgQ',
-  authDomain: 'auth3-fad82.firebaseapp.com',
-  databaseURL: 'https://auth3-fad82-default-rtdb.europe-west1.firebasedatabase.app',
-  projectId: 'auth3-fad82',
-  storageBucket: 'auth3-fad82.appspot.com',
-  messagingSenderId: '325041567607',
-  appId: '1:325041567607:web:103f827eafa81fdf3d5372',
+    apiKey: 'AIzaSyBzIGGSufXWhiy2amlL_ka5f0X-VeLnSgQ',
+    authDomain: 'auth3-fad82.firebaseapp.com',
+    databaseURL: 'https://auth3-fad82-default-rtdb.europe-west1.firebasedatabase.app',
+    projectId: 'auth3-fad82',
+    storageBucket: 'auth3-fad82.appspot.com',
+    messagingSenderId: '325041567607',
+    appId: '1:325041567607:web:103f827eafa81fdf3d5372',
 };
 
 initializeApp(firebaseConfig)
@@ -59,8 +59,8 @@ const refLibrary = document.getElementById('library')
 const refHome = document.getElementById('home')
 const refWatchedBtn = document.getElementById('watched')
 const refQueueBtn = document.getElementById('queue')
-    // const addQueueRef = document.getElementById('add-queue-js')
-    // const addWatchedRef = document.getElementById('add-watched-js')
+// const addQueueRef = document.getElementById('add-queue-js')
+// const addWatchedRef = document.getElementById('add-watched-js')
 
 refLogo.addEventListener('click', (e) => {
     refs.idPagination.classList.remove('visually-hidden')
@@ -202,10 +202,13 @@ refWatchedBtn.addEventListener('click', (e) => {
         .then((snapshot) => {
             console.log(snapshot.docs)
             snapshot.docs.forEach((doc) => {
-                films.push({...doc.data(), id: doc._document.data.value.mapValue.fields.id.integerValue })
+                films.push({ ...doc.data(), id: doc._document.data.value.mapValue.fields.id.integerValue })
             })
             const dataLibrary = films.filter(film => film.status == 'watched' && film.user == userEmail)
-
+            if (dataLibrary.length === 0) {
+                Notiflix.Notify.info('Список пустий');
+                return refs.gallery_films.innerHTML = 'Пусто';
+            }
             renderListCard(dataLibrary)
         })
         .catch(err => {
@@ -215,7 +218,7 @@ refWatchedBtn.addEventListener('click', (e) => {
 })
 
 refQueueBtn.addEventListener('click', openQueue);
-export function openQueue(e) {
+function openQueue(e) {
     refWatchedBtn.removeAttribute('disabled', true)
     refQueueBtn.setAttribute('disabled', true)
     refWatchedBtn.classList.remove('active-btn')
@@ -232,7 +235,10 @@ export function openQueue(e) {
                 });
             })
             const dataLibrary = films.filter(film => film.status == 'queue' && film.user == userEmail)
-
+            if (dataLibrary.length === 0) {
+                Notiflix.Notify.info('Список пустий');
+                return refs.gallery_films.innerHTML = 'Пусто';
+            }
             renderListCard(dataLibrary)
         })
         .catch(err => {
@@ -252,9 +258,15 @@ refLibrary.addEventListener('click', (e) => {
     refLibrary.setAttribute('disabled', true)
     refs.idPagination.classList.add('visually-hidden')
     if (userEmail == false) {
+        refQueueBtn.disabled = true;
+        refWatchedBtn.disabled = true;
         Notiflix.Notify.failure('LOG IN PLZ')
-            //    modal.classList.remove('visually-hidden');
+        return refs.gallery_films.innerHTML = 'Потрібно залогінитися';
+        //    modal.classList.remove('visually-hidden');
     }
+    refQueueBtn.disabled = false;
+    refWatchedBtn.disabled = false;
+    openQueue()
     // films = []
     // getDocs(colRef)
     //     .then((snapshot) => {
@@ -275,7 +287,7 @@ refLibrary.addEventListener('click', (e) => {
     //     })
 })
 
-document.getElementById("login").addEventListener('click', function() {
+document.getElementById("login").addEventListener('click', function () {
     const email = document.getElementById('email').value
     const password = document.getElementById('pass').value
 
@@ -300,7 +312,7 @@ document.getElementById("login").addEventListener('click', function() {
 
 })
 
-document.getElementById("register").addEventListener('click', function() {
+document.getElementById("register").addEventListener('click', function () {
     const email = document.getElementById('email').value
     const password = document.getElementById('pass').value
 
@@ -312,9 +324,9 @@ document.getElementById("register").addEventListener('click', function() {
             // Signed in 
             const user = userCredential.user;
             console.log(user)
-                // ...
+            // ...
             window.alert('Created')
-                // modal.classList.add('visually-hidden');
+            // modal.classList.add('visually-hidden');
         })
         .catch((error) => {
             const errorCode = error.code;
