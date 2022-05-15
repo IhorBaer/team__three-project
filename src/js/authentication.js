@@ -23,7 +23,7 @@ export let userEmail = ""
 const dataData = new FetchApi()
 const modal = document.querySelector('.auth-modal')
 const openModal = document.querySelector('.open_auth-js')
-// console.log(openModal)
+    // console.log(openModal)
 
 const firebaseConfig = {
     apiKey: "AIzaSyCgHWVD37iS9SyzyjybiROGSJgrZBuPF74",
@@ -43,12 +43,17 @@ const auth = getAuth();
 // дані для відмальовування бібліотеки перемінна films 
 // import { films } from "module-name";
 let films = [];
+const refLogo = document.querySelector('.logo')
 const refLibrary = document.getElementById('library')
 const refHome = document.getElementById('home')
 const refWatchedBtn = document.getElementById('watched')
 const refQueueBtn = document.getElementById('queue')
-// const addQueueRef = document.getElementById('add-queue-js')
-// const addWatchedRef = document.getElementById('add-watched-js')
+    // const addQueueRef = document.getElementById('add-queue-js')
+    // const addWatchedRef = document.getElementById('add-watched-js')
+
+refLogo.addEventListener('click', (e) => {
+    refs.idPagination.classList.remove('visually-hidden')
+})
 
 
 refWatchedBtn.addEventListener('click', (e) => {
@@ -186,7 +191,7 @@ refWatchedBtn.addEventListener('click', (e) => {
         .then((snapshot) => {
             console.log(snapshot.docs)
             snapshot.docs.forEach((doc) => {
-                films.push({ ...doc.data(), id: doc._document.data.value.mapValue.fields.id.integerValue })
+                films.push({...doc.data(), id: doc._document.data.value.mapValue.fields.id.integerValue })
             })
             const dataLibrary = films.filter(film => film.status == 'watched' && film.user == userEmail)
 
@@ -227,6 +232,7 @@ export function openQueue(e) {
 refHome.addEventListener('click',
 
     (e) => {
+        refs.idPagination.classList.remove('visually-hidden')
         refLibrary.removeAttribute('disabled', true)
         getPopularMoviesData()
     })
@@ -236,7 +242,7 @@ refLibrary.addEventListener('click', (e) => {
     refs.idPagination.classList.add('visually-hidden')
     if (userEmail == false) {
         Notiflix.Notify.failure('LOG IN PLZ')
-        //    modal.classList.remove('visually-hidden');
+            //    modal.classList.remove('visually-hidden');
     }
     // films = []
     // getDocs(colRef)
@@ -258,7 +264,7 @@ refLibrary.addEventListener('click', (e) => {
     //     })
 })
 
-document.getElementById("login").addEventListener('click', function () {
+document.getElementById("login").addEventListener('click', function() {
     const email = document.getElementById('email').value
     const password = document.getElementById('pass').value
 
@@ -283,7 +289,7 @@ document.getElementById("login").addEventListener('click', function () {
 
 })
 
-document.getElementById("register").addEventListener('click', function () {
+document.getElementById("register").addEventListener('click', function() {
     const email = document.getElementById('email').value
     const password = document.getElementById('pass').value
 
@@ -295,9 +301,9 @@ document.getElementById("register").addEventListener('click', function () {
             // Signed in 
             const user = userCredential.user;
             console.log(user)
-            // ...
+                // ...
             window.alert('Created')
-            // modal.classList.add('visually-hidden');
+                // modal.classList.add('visually-hidden');
         })
         .catch((error) => {
             const errorCode = error.code;
