@@ -238,24 +238,24 @@ refLibrary.addEventListener('click', (e) => {
         Notiflix.Notify.failure('LOG IN PLZ')
         //    modal.classList.remove('visually-hidden');
     }
-    films = []
-    getDocs(colRef)
-        .then((snapshot) => {
-            console.log(snapshot.docs)
-            snapshot.docs.forEach((doc) => {
-                films.push({
-                    ...doc.data(),
-                    id: doc._document.data.value.mapValue.fields.id.integerValue,
-                });
-            })
-            const dataLibrary = films.filter(film => film.status == 'queue' && film.user == userEmail)
+    // films = []
+    // getDocs(colRef)
+    //     .then((snapshot) => {
+    //         console.log(snapshot.docs)
+    //         snapshot.docs.forEach((doc) => {
+    //             films.push({
+    //                 ...doc.data(),
+    //                 id: doc._document.data.value.mapValue.fields.id.integerValue,
+    //             });
+    //         })
+    //         const dataLibrary = films.filter(film => film.status == 'queue' && film.user == userEmail)
 
-            renderListCard(dataLibrary)
-        })
-        .catch(err => {
-            console.log(err.message)
+    //         renderListCard(dataLibrary)
+    //     })
+    //     .catch(err => {
+    //         console.log(err.message)
 
-        })
+    //     })
 })
 
 document.getElementById("login").addEventListener('click', function () {
