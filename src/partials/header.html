@@ -1,25 +1,30 @@
-
 <header class="header header__background">
+
   <div class="container">
     <!-- навігація і логотип -->
     <nav class="navigation">
-      <a class="logo" href=""
+      <a class="logo" aria-label="logo of Filmoteka" href=""
         ><div class="wrapper-logo">
           <svg class="logo-icon">
+
             <use href="./images/sprite.svg#icon-logo"></use>
           </svg>
-          <span class="logo-text">Filmoteka</span>
-        </div>
-      </a>
+                    <span class="logo-text">Filmoteka</span>
+                </div>
+            </a>
 
       <ul class="list navigation__list">
         <li class="navigation__list-item">
           <!-- <a class="link navigation-link current-link" id="home" href="">Home</a> -->
-          <button class="navigation-link current-link" type="button" id="home">Home</button>
+
+
+
+          <button class="navigation-link current-link" aria-label="main page switch" type="button" id="home">Home</button>
+
         </li>
         <li class="navigation__list-link">
           <!-- <a class="link navigation-link" id="library" href="">My library</a> -->
-          <button class="navigation-link" type="button" id="library">My library</button>
+          <button class="navigation-link" aria-label="library page switch" type="button" id="library">My library</button>
         </li>
       </ul>
     </nav>
@@ -33,22 +38,24 @@
           autocomplete="off"
           placeholder="Search movies..."
         />
-        <button class="search-button" type="submit">
+        <button class="search-button" aria-label="search films" type="submit">
           <svg class="search-icon">
             <use href="./images/sprite.svg#icon-search"></use>
           </svg>
         </button>
-        <!-- попередження -->
-        <div class="warning is-hidden">Search result not successful. Enter the correct movie name and</div>
-      </form>
+                    <!-- попередження -->
+                    <div class="warning is-hidden">Search result not successful. Enter the correct movie name</div>
+                    </form>
     </div>
 
     <!-- кнопки в My library
 клас для активної кнопки
 active-btn -->
     <div class="buttons visually-hidden">
-      <button class="button_library"  id="watched"type="button" >Watched</button
-      ><button class="button_library" id="queue" type="button" disabled>Queue</button>
+
+        <button class="button_library" type="button">Watched</button
+      ><button class="button_library" type="button">Queue</button>
+
     </div>
-  </div>
+    </div>
 </header>
