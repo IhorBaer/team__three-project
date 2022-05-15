@@ -14,13 +14,23 @@ import { renderListCard } from './base/render';
 // console.log(renderListCard());
 // console.log(userEmail)
 
+// const firebaseConfig = {
+//   apiKey: "AIzaSyCgHWVD37iS9SyzyjybiROGSJgrZBuPF74",
+//   authDomain: "fir-g3-a635e.firebaseapp.com",
+//   projectId: "fir-g3-a635e",
+//   storageBucket: "fir-g3-a635e.appspot.com",
+//   messagingSenderId: "387248887615",
+//   appId: "1:387248887615:web:53bf0176f3707f756ae58a"
+// };
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCgHWVD37iS9SyzyjybiROGSJgrZBuPF74",
-  authDomain: "fir-g3-a635e.firebaseapp.com",
-  projectId: "fir-g3-a635e",
-  storageBucket: "fir-g3-a635e.appspot.com",
-  messagingSenderId: "387248887615",
-  appId: "1:387248887615:web:53bf0176f3707f756ae58a"
+  apiKey: 'AIzaSyBzIGGSufXWhiy2amlL_ka5f0X-VeLnSgQ',
+  authDomain: 'auth3-fad82.firebaseapp.com',
+  databaseURL: 'https://auth3-fad82-default-rtdb.europe-west1.firebasedatabase.app',
+  projectId: 'auth3-fad82',
+  storageBucket: 'auth3-fad82.appspot.com',
+  messagingSenderId: '325041567607',
+  appId: '1:325041567607:web:103f827eafa81fdf3d5372',
 };
 
 initializeApp(firebaseConfig)
