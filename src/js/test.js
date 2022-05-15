@@ -1,4 +1,4 @@
-import { openQueue } from './authentication';
+// import { openQueue } from './authentication';
 
 const jsClick = document.querySelector('.navigation__list');
 const refGallery = document.querySelector('.movie-gallery');
@@ -38,7 +38,7 @@ refLibrary.addEventListener('click', event => {
     refHeader.classList.add('header__background-library');
   }
 
-  openQueue()
+  // openQueue()
 });
 
 refHome.addEventListener('click', event => {
