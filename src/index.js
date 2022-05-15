@@ -8,6 +8,6 @@ import './js/base/render';
 import './js/render_popular_movies';
 import './js/pagination';
 import './js/auth-modal';
-// import './js/authentication';
+import './js/authentication';
 import './js/search-film';
 import './js/scroll';

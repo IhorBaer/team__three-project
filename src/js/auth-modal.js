@@ -1,5 +1,7 @@
+import { userEmail } from "./authentication";
+
 const refs = {
-  openModal: document.querySelector('.open_auth'),
+  openModal: document.querySelector('.films__gallery'),
   closeModalBtn: document.querySelector('.auth-modal-close'),
   modal: document.querySelector('.auth-modal'),
   body: document.querySelector('body'),
@@ -15,11 +17,13 @@ function closeModal(e) {
   scroll();
 }
 function openModal() {
-  modalRemoveHidden();
-  scroll();
-  refs.modal.addEventListener('click', onBackdropClick);
-  refs.body.addEventListener('keydown', onEscClick);
-  refs.closeModalBtn.addEventListener('click', closeModal);
+  if (userEmail == false) {
+    modalRemoveHidden();
+    scroll();
+    refs.modal.addEventListener('click', onBackdropClick);
+    refs.body.addEventListener('keydown', onEscClick);
+    refs.closeModalBtn.addEventListener('click', closeModal);
+  }
 }
 function onBackdropClick(e) {
   if (e.currentTarget !== e.target) {
@@ -28,10 +32,10 @@ function onBackdropClick(e) {
   closeModal();
 }
 function onEscClick(e) {
-  modalIsClose = refs.modal.classList.contains('visually-hidden');
-  if (modalIsClose) {
-    return;
-  }
+  // modalIsClose = refs.modal.classList.contains('visually-hidden');
+  // if (modalIsClose) {
+  //   return;
+  // }
   if (e.key === 'Escape') {
     closeModal();
   }

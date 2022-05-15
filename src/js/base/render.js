@@ -6,3 +6,4 @@ export function renderListCard(data) {
     const markup = itemsTemplate({...data });
     refs.gallery_films.insertAdjacentHTML('afterbegin', markup);
 }
+
