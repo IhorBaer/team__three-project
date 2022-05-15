@@ -55,7 +55,7 @@ export default class FetchApi {
     try {
       const url = `https://api.themoviedb.org/3/movie/${this.id}?api_key=${API_KEY}&language=en-US`;
       const response = await axios.get(url);
-      //   console.log(response.data);
+        // console.log(response.data);        
       return response.data;
     } catch (error) {
       // Notify.info(`Please enter a search word.`)
