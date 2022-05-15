@@ -1,6 +1,31 @@
 import FetchApi from './api/fetch_movies';
 // import { FetchApi } from './api/fetch_movies';
 import { apiFetch } from './search-film';
+import { initializeApp } from 'firebase/app'
+import { getFirestore, collection, getDocs, addDoc, deleteDoc, doc } from 'firebase/firestore'
+import Notiflix from 'notiflix';
+import {
+    getAuth, createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    getMultiFactorResolver, onAuthStateChanged
+} from 'firebase/auth'
+import { userEmail } from './authentication';
+console.log(userEmail)
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCgHWVD37iS9SyzyjybiROGSJgrZBuPF74",
+  authDomain: "fir-g3-a635e.firebaseapp.com",
+  projectId: "fir-g3-a635e",
+  storageBucket: "fir-g3-a635e.appspot.com",
+  messagingSenderId: "387248887615",
+  appId: "1:387248887615:web:53bf0176f3707f756ae58a"
+};
+
+initializeApp(firebaseConfig)
+
+const db = getFirestore()
+const colRef = collection(db, 'films')
+const auth = getAuth();
 
 const refs = {
   openModalItem: document.querySelector('[data-action="open-modal"]'),
@@ -9,11 +34,13 @@ const refs = {
   modal: document.querySelector('.modal'),
 };
 
-const filmApi = new FetchApi();
+export const filmApi = new FetchApi();
 
 refs.openModalItem.addEventListener('click', onOpenModal);
 refs.closeModalBtn.addEventListener('click', onCloseModal);
 refs.backdrop.addEventListener('click', onBackdropClick);
+
+
 
 async function onOpenModal(event) {
   event.preventDefault();
@@ -28,8 +55,57 @@ async function onOpenModal(event) {
 
   filmApi.movieId = event.target.dataset.id;
   const film = await filmApi.getMovieInFoBuyId();
-  console.log(film);
+  // console.log(film.id);
+  // console.log(film)
   refs.modal.insertAdjacentHTML('afterbegin', makeFilmModalMarkup(film));
+
+const btnW = document.querySelector('.btnW').addEventListener('click', () => {
+  // btnW.setAttribute('disabled', true)
+  // textContent = 'DELETE '
+
+ 
+    addDoc(colRef, {
+      genre_ids: film.genres,
+      poster_path: film.poster_path,
+      id: film.id,
+      title: film.original_title,
+      release_date: film.release_date,
+      vote_average: film.vote_average,
+      status: 'watched',
+      user: userEmail,
+
+    })
+      .then(() => {
+        Notiflix.Notify.info('ADD FILM TO WATCHED')
+   
+      }).catch(err => {
+      console.log(err.message);
+    });
+})
+    
+  const btnQ = document.querySelector('.btnQ').addEventListener('click', () => {
+
+// if(film.id == db.films){return}  
+ console.log(film.id)
+    addDoc(colRef, {
+      genre_ids: film.genres,
+      poster_path: film.poster_path,
+      id: film.id,
+      title: film.original_title,
+      release_date: film.release_date,
+      vote_average: film.vote_average,
+      status: 'queue',
+      user: userEmail,
+
+    })
+      .then(() => {
+        Notiflix.Notify.info('ADD FILM TO QUEUE')
+   
+      }).catch(err => {
+      console.log(err.message);
+    });
+})
+
 }
 
 function onCloseModal() {
@@ -54,7 +130,7 @@ function onEscKeyPress(event) {
   }
 }
 
-function makeFilmModalMarkup({
+export function makeFilmModalMarkup({
   poster_path,
   original_title,
   title,
@@ -93,9 +169,10 @@ function makeFilmModalMarkup({
                 </table>
                 <p class="modal__title-about">About</p>
                 <p class="modal__article-about-movie">${overview}</p>
+
                 <div class="modal__button-container">
-                    <button type="submit" class="modal__button" data-id=${id}>ADD TO WATCHED</button>
-                    <button type="submit" class="modal__button" data-id=${id}>ADD TO QUEUE</button>
+                    <button type="submit" class="modal__button btnW" data-id=${id}>ADD TO WATCHED</button>
+                    <button type="submit" class="modal__button btnQ" data-id=${id}>ADD TO QUEUE</button>
                 </div>
             </div>`;
 }

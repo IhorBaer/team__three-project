@@ -103,7 +103,7 @@ import { refs } from './base/refs';
 
 export const movieApiService = new MovieApiService()
     //эта функция получает данные с бэкенда
-async function getPopularMoviesData(renderPage) {
+export async function getPopularMoviesData(renderPage) {
 
     try {
         const { page, results, total_results: totalItems } = await movieApiService.getPopularMovies(renderPage);
