@@ -161,4 +161,4 @@ const s=document.querySelector(".js-scroll");function l(l){l.preventDefault(),wi
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("tui-pagination/dist/tui-pagination.css"),require("./sass/main.scss"),require("./js/test"),require("./js/modal"),require("./js/team-modal"),require("./js/api/fetch_movies"),require("./js/base/render"),require("./js/render_popular_movies"),require("./js/pagination"),require("./js/auth-modal"),require("./js/authentication"),require("./js/search-film"),require("./js/scroll"),require("./js/base/loader");
 },{"tui-pagination/dist/tui-pagination.css":"UYQs","./sass/main.scss":"clu1","./js/test":"wWBc","./js/modal":"RSqK","./js/team-modal":"SVxB","./js/api/fetch_movies":"hqI7","./js/base/render":"PZhg","./js/render_popular_movies":"T9cD","./js/pagination":"o8lo","./js/auth-modal":"TOav","./js/authentication":"QFgu","./js/search-film":"abVP","./js/scroll":"N8YO","./js/base/loader":"UYQs"}]},{},["Focm"], null)
-//# sourceMappingURL=/team__three-project/src.65d024bb.js.map
+//# sourceMappingURL=/team__three-project/src.2aeaa7b4.js.map
