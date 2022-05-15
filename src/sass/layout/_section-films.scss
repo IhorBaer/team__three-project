@@ -44,3 +44,17 @@
         margin-left: 16px;
     }
 }
+
+.ship{
+    width: 100%;
+}
+.ship__div{
+    width: 874px;
+    height: 550px;
+    margin: 0 auto;
+
+    background-image: url(/images/ship/ship.jpg);
+    background-size: covet;
+        background-repeat: no-repeat;
+        background-position: center;
+}

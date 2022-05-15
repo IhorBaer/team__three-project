@@ -24,7 +24,7 @@ const dataData = new FetchApi()
 const modal = document.querySelector('.auth-modal')
 const openModal = document.querySelector('.open_auth-js')
 // console.log(openModal)
-
+const shipRef = document.querySelector('.ship')
 // const firebaseConfig = {
 //     apiKey: "AIzaSyCgHWVD37iS9SyzyjybiROGSJgrZBuPF74",
 //     authDomain: "fir-g3-a635e.firebaseapp.com",
@@ -207,7 +207,13 @@ refWatchedBtn.addEventListener('click', (e) => {
             const dataLibrary = films.filter(film => film.status == 'watched' && film.user == userEmail)
             if (dataLibrary.length === 0) {
                 Notiflix.Notify.info('Список пустий');
-                return refs.gallery_films.innerHTML = 'Пусто';
+                // return refs.gallery_films.innerHTML = 'Пусто';
+                return refs.gallery_films.innerHTML = `
+                <li class="ship">
+                <div class="ship__div">
+                </div>
+                </li>`
+
             }
             renderListCard(dataLibrary)
         })
@@ -237,7 +243,12 @@ function openQueue(e) {
             const dataLibrary = films.filter(film => film.status == 'queue' && film.user == userEmail)
             if (dataLibrary.length === 0) {
                 Notiflix.Notify.info('Список пустий');
-                return refs.gallery_films.innerHTML = 'Пусто';
+                // return refs.gallery_films.innerHTML = 'Пусто';
+                return refs.gallery_films.innerHTML = `
+                <li class="ship">
+                <div class="ship__div">
+                </div>
+                </li>`
             }
             renderListCard(dataLibrary)
         })
