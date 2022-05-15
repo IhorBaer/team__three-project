@@ -56,42 +56,168 @@ refWatchedBtn.addEventListener('click', (e) => {
     refQueueBtn.removeAttribute('disabled', true)
 
     // refQueueBtn.textContent = "ff"
+//     films = []
+//    getDocs(colRef)
+//      .then((snapshot) => {
+//          console.log(snapshot.docs)
+//          snapshot.docs.forEach((doc) => {
+//             films.push({ ...doc.data(), id: doc.id })
+//       })
+//              const dataLibrary = films.filter(film => film.status == 'watched' && film.user == userEmail)
+
+//        renderListCard(dataLibrary)
+//     })
+//     .catch(err => {
+//         console.log(err.message)
+       
+//     })
+//  })
+
+// refQueueBtn.addEventListener('click', (e) => {
+//      refWatchedBtn.removeAttribute('disabled', true)
+//     refQueueBtn.setAttribute('disabled', true)
+//      films = []
+//    getDocs(colRef)
+//      .then((snapshot) => {
+//          console.log(snapshot.docs)
+//          snapshot.docs.forEach((doc) => {
+//             films.push({ ...doc.data(), id: doc.id })
+//       })
+//              const dataLibrary = films.filter(film => film.status == 'queue' && film.user == userEmail)
+
+//        renderListCard(dataLibrary)
+//     })
+//     .catch(err => {
+//         console.log(err.message)
+       
+//     })
+//  })
+// refHome.addEventListener('click',
+ 
+//     (e) => {
+//         refLibrary.removeAttribute('disabled', true)
+//         getPopularMoviesData()
+//     })
+
+// refLibrary.addEventListener('click', (e) => {
+//     refLibrary.setAttribute('disabled', true)
+//     if (userEmail == false) {
+//         Notiflix.Notify.failure('LOG IN PLZ')
+//                 //    modal.classList.remove('visually-hidden');
+//     }
+//     films = []
+//    getDocs(colRef)
+//      .then((snapshot) => {
+//          console.log(snapshot.docs)
+//          snapshot.docs.forEach((doc) => {
+//             films.push({ ...doc.data(), id: doc.id })
+//       })
+//              const dataLibrary = films.filter(film => film.status == 'queue' && film.user == userEmail)
+
+//        renderListCard(dataLibrary)
+//     })
+//     .catch(err => {
+//         console.log(err.message)
+       
+//     })
+// })
+ 
+//     document.getElementById("login").addEventListener('click', function () {
+//         const email = document.getElementById('email').value
+//         const password = document.getElementById('pass').value
+
+
+
+//         signInWithEmailAndPassword(auth, email, password)
+//         .then((userCredential) => {
+//             // Signed in
+//              userEmail = userCredential.user.email;
+//             // console.log(userEmail)
+//             // ...
+//             Notiflix.Notify.info(`You are logged in ${email}`);
+//             // modal.classList.add('visually-hidden');
+
+//         })
+//         .catch((error) => {
+//             const errorCode = error.code;
+//             const errorMessage = error.message;
+//             window.alert(errorCode + errorMessage);
+//         });
+     
+        
+//     })
+        
+//     document.getElementById("register").addEventListener('click', function(){
+//     const email = document.getElementById('email').value
+//     const password = document.getElementById('pass').value
+
+//     console.log(email)
+//     console.log(password)
+
+//     createUserWithEmailAndPassword(auth, email, password)
+//         .then((userCredential) => {
+//         // Signed in
+//             const user = userCredential.user;
+//             console.log(user)
+//         // ...
+//             window.alert('Created')
+//             // modal.classList.add('visually-hidden');
+//         })
+//         .catch((error) => {
+//         const errorCode = error.code;
+//         const errorMessage = error.message;
+//         // ..
+//         window.alert(errorCode + errorMessage)
+//         });
+        
+//     })
+
+// // export function renderListCardLibrary(data) {
+ 
+// //     const markup = itemsTemplate({...data });
+// //     refs.gallery_films.innerHTML(markup);
+// // }
+
+
     films = []
-    getDocs(colRef)
-        .then((snapshot) => {
-            console.log(snapshot.docs)
-            snapshot.docs.forEach((doc) => {
-                films.push({...doc.data(), id: doc.id })
-            })
-            const dataLibrary = films.filter(film => film.status == 'watched' && film.user == userEmail)
+   getDocs(colRef)
+     .then((snapshot) => {
+         console.log(snapshot.docs)
+         snapshot.docs.forEach((doc) => {
+            films.push({ ...doc.data(), id: doc._document.data.value.mapValue.fields.id.integerValue })
+      })
+             const dataLibrary = films.filter(film => film.status == 'watched' && film.user == userEmail)
 
-            renderListCard(dataLibrary)
-        })
-        .catch(err => {
-            console.log(err.message)
-
-        })
-})
+       renderListCard(dataLibrary)
+    })
+    .catch(err => {
+        console.log(err.message)
+       
+    }) 
+ })
 
 refQueueBtn.addEventListener('click', (e) => {
     refWatchedBtn.removeAttribute('disabled', true)
     refQueueBtn.setAttribute('disabled', true)
-    films = []
-    getDocs(colRef)
-        .then((snapshot) => {
-            console.log(snapshot.docs)
-            snapshot.docs.forEach((doc) => {
-                films.push({...doc.data(), id: doc.id })
-            })
-            const dataLibrary = films.filter(film => film.status == 'queue' && film.user == userEmail)
+     films = []
+   getDocs(colRef)
+     .then((snapshot) => {
+         console.log(snapshot.docs)
+         snapshot.docs.forEach((doc) => {
+            films.push({
+              ...doc.data(),
+              id: doc._document.data.value.mapValue.fields.id.integerValue,
+            });
+      })
+             const dataLibrary = films.filter(film => film.status == 'queue' && film.user == userEmail)
 
-            renderListCard(dataLibrary)
-        })
-        .catch(err => {
-            console.log(err.message)
-
-        })
-})
+       renderListCard(dataLibrary)
+    })
+    .catch(err => {
+        console.log(err.message)
+       
+    }) 
+ })
 refHome.addEventListener('click',
 
     (e) => {
@@ -107,20 +233,23 @@ refLibrary.addEventListener('click', (e) => {
             //    modal.classList.remove('visually-hidden');
     }
     films = []
-    getDocs(colRef)
-        .then((snapshot) => {
-            console.log(snapshot.docs)
-            snapshot.docs.forEach((doc) => {
-                films.push({...doc.data(), id: doc.id })
-            })
-            const dataLibrary = films.filter(film => film.status == 'queue' && film.user == userEmail)
+   getDocs(colRef)
+     .then((snapshot) => {
+         console.log(snapshot.docs)
+         snapshot.docs.forEach((doc) => {
+            films.push({
+              ...doc.data(),
+              id: doc._document.data.value.mapValue.fields.id.integerValue,
+            });
+      })
+             const dataLibrary = films.filter(film => film.status == 'queue' && film.user == userEmail)
 
-            renderListCard(dataLibrary)
-        })
-        .catch(err => {
-            console.log(err.message)
-
-        })
+       renderListCard(dataLibrary)
+    })
+    .catch(err => {
+        console.log(err.message)
+       
+    }) 
 })
 
 document.getElementById("login").addEventListener('click', function() {

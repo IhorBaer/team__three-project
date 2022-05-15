@@ -10,7 +10,9 @@ import {
     getMultiFactorResolver, onAuthStateChanged
 } from 'firebase/auth'
 import { userEmail } from './authentication';
-console.log(userEmail)
+import { renderListCard } from './base/render';
+// console.log(renderListCard());
+// console.log(userEmail)
 
 const firebaseConfig = {
   apiKey: "AIzaSyCgHWVD37iS9SyzyjybiROGSJgrZBuPF74",
@@ -56,7 +58,7 @@ async function onOpenModal(event) {
   filmApi.movieId = event.target.dataset.id;
   const film = await filmApi.getMovieInFoBuyId();
   // console.log(film.id);
-  // console.log(film)
+  console.log(film)
   refs.modal.insertAdjacentHTML('afterbegin', makeFilmModalMarkup(film));
 
 const btnW = document.querySelector('.btnW').addEventListener('click', () => {
