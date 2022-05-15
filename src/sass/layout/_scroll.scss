@@ -16,12 +16,12 @@
        &.scroll--isShown {
            opacity: 0.8;
            visibility: visible;
-           fill: var(--logo-fill);
-       }
-       &:hover, 
-       &:focus {
            fill: var(--accent-header-color);
        }
+    //    &:hover, 
+    //    &:focus {
+    //        fill: var(--accent-header-color);
+    //    }
    }
 
    .icon__scroll {
