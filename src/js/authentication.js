@@ -23,7 +23,7 @@ export let userEmail = ""
 const dataData = new FetchApi()
 const modal = document.querySelector('.auth-modal')
 const openModal = document.querySelector('.open_auth-js')
-    // console.log(openModal)
+// console.log(openModal)
 
 const firebaseConfig = {
     apiKey: "AIzaSyCgHWVD37iS9SyzyjybiROGSJgrZBuPF74",
@@ -47,177 +47,183 @@ const refLibrary = document.getElementById('library')
 const refHome = document.getElementById('home')
 const refWatchedBtn = document.getElementById('watched')
 const refQueueBtn = document.getElementById('queue')
-    // const addQueueRef = document.getElementById('add-queue-js')
-    // const addWatchedRef = document.getElementById('add-watched-js')
+// const addQueueRef = document.getElementById('add-queue-js')
+// const addWatchedRef = document.getElementById('add-watched-js')
 
 
 refWatchedBtn.addEventListener('click', (e) => {
     refWatchedBtn.setAttribute('disabled', true)
     refQueueBtn.removeAttribute('disabled', true)
+    refQueueBtn.classList.remove('active-btn')
+    refWatchedBtn.classList.add('active-btn')
 
     // refQueueBtn.textContent = "ff"
-//     films = []
-//    getDocs(colRef)
-//      .then((snapshot) => {
-//          console.log(snapshot.docs)
-//          snapshot.docs.forEach((doc) => {
-//             films.push({ ...doc.data(), id: doc.id })
-//       })
-//              const dataLibrary = films.filter(film => film.status == 'watched' && film.user == userEmail)
+    //     films = []
+    //    getDocs(colRef)
+    //      .then((snapshot) => {
+    //          console.log(snapshot.docs)
+    //          snapshot.docs.forEach((doc) => {
+    //             films.push({ ...doc.data(), id: doc.id })
+    //       })
+    //              const dataLibrary = films.filter(film => film.status == 'watched' && film.user == userEmail)
 
-//        renderListCard(dataLibrary)
-//     })
-//     .catch(err => {
-//         console.log(err.message)
-       
-//     })
-//  })
+    //        renderListCard(dataLibrary)
+    //     })
+    //     .catch(err => {
+    //         console.log(err.message)
 
-// refQueueBtn.addEventListener('click', (e) => {
-//      refWatchedBtn.removeAttribute('disabled', true)
-//     refQueueBtn.setAttribute('disabled', true)
-//      films = []
-//    getDocs(colRef)
-//      .then((snapshot) => {
-//          console.log(snapshot.docs)
-//          snapshot.docs.forEach((doc) => {
-//             films.push({ ...doc.data(), id: doc.id })
-//       })
-//              const dataLibrary = films.filter(film => film.status == 'queue' && film.user == userEmail)
+    //     })
+    //  })
 
-//        renderListCard(dataLibrary)
-//     })
-//     .catch(err => {
-//         console.log(err.message)
-       
-//     })
-//  })
-// refHome.addEventListener('click',
- 
-//     (e) => {
-//         refLibrary.removeAttribute('disabled', true)
-//         getPopularMoviesData()
-//     })
+    // refQueueBtn.addEventListener('click', (e) => {
+    //      refWatchedBtn.removeAttribute('disabled', true)
+    //     refQueueBtn.setAttribute('disabled', true)
+    //      films = []
+    //    getDocs(colRef)
+    //      .then((snapshot) => {
+    //          console.log(snapshot.docs)
+    //          snapshot.docs.forEach((doc) => {
+    //             films.push({ ...doc.data(), id: doc.id })
+    //       })
+    //              const dataLibrary = films.filter(film => film.status == 'queue' && film.user == userEmail)
 
-// refLibrary.addEventListener('click', (e) => {
-//     refLibrary.setAttribute('disabled', true)
-//     if (userEmail == false) {
-//         Notiflix.Notify.failure('LOG IN PLZ')
-//                 //    modal.classList.remove('visually-hidden');
-//     }
-//     films = []
-//    getDocs(colRef)
-//      .then((snapshot) => {
-//          console.log(snapshot.docs)
-//          snapshot.docs.forEach((doc) => {
-//             films.push({ ...doc.data(), id: doc.id })
-//       })
-//              const dataLibrary = films.filter(film => film.status == 'queue' && film.user == userEmail)
+    //        renderListCard(dataLibrary)
+    //     })
+    //     .catch(err => {
+    //         console.log(err.message)
 
-//        renderListCard(dataLibrary)
-//     })
-//     .catch(err => {
-//         console.log(err.message)
-       
-//     })
-// })
- 
-//     document.getElementById("login").addEventListener('click', function () {
-//         const email = document.getElementById('email').value
-//         const password = document.getElementById('pass').value
+    //     })
+    //  })
+    // refHome.addEventListener('click',
+
+    //     (e) => {
+    //         refLibrary.removeAttribute('disabled', true)
+    //         getPopularMoviesData()
+    //     })
+
+    // refLibrary.addEventListener('click', (e) => {
+    //     refLibrary.setAttribute('disabled', true)
+    //     if (userEmail == false) {
+    //         Notiflix.Notify.failure('LOG IN PLZ')
+    //                 //    modal.classList.remove('visually-hidden');
+    //     }
+    //     films = []
+    //    getDocs(colRef)
+    //      .then((snapshot) => {
+    //          console.log(snapshot.docs)
+    //          snapshot.docs.forEach((doc) => {
+    //             films.push({ ...doc.data(), id: doc.id })
+    //       })
+    //              const dataLibrary = films.filter(film => film.status == 'queue' && film.user == userEmail)
+
+    //        renderListCard(dataLibrary)
+    //     })
+    //     .catch(err => {
+    //         console.log(err.message)
+
+    //     })
+    // })
+
+    //     document.getElementById("login").addEventListener('click', function () {
+    //         const email = document.getElementById('email').value
+    //         const password = document.getElementById('pass').value
 
 
 
-//         signInWithEmailAndPassword(auth, email, password)
-//         .then((userCredential) => {
-//             // Signed in
-//              userEmail = userCredential.user.email;
-//             // console.log(userEmail)
-//             // ...
-//             Notiflix.Notify.info(`You are logged in ${email}`);
-//             // modal.classList.add('visually-hidden');
+    //         signInWithEmailAndPassword(auth, email, password)
+    //         .then((userCredential) => {
+    //             // Signed in
+    //              userEmail = userCredential.user.email;
+    //             // console.log(userEmail)
+    //             // ...
+    //             Notiflix.Notify.info(`You are logged in ${email}`);
+    //             // modal.classList.add('visually-hidden');
 
-//         })
-//         .catch((error) => {
-//             const errorCode = error.code;
-//             const errorMessage = error.message;
-//             window.alert(errorCode + errorMessage);
-//         });
-     
-        
-//     })
-        
-//     document.getElementById("register").addEventListener('click', function(){
-//     const email = document.getElementById('email').value
-//     const password = document.getElementById('pass').value
+    //         })
+    //         .catch((error) => {
+    //             const errorCode = error.code;
+    //             const errorMessage = error.message;
+    //             window.alert(errorCode + errorMessage);
+    //         });
 
-//     console.log(email)
-//     console.log(password)
 
-//     createUserWithEmailAndPassword(auth, email, password)
-//         .then((userCredential) => {
-//         // Signed in
-//             const user = userCredential.user;
-//             console.log(user)
-//         // ...
-//             window.alert('Created')
-//             // modal.classList.add('visually-hidden');
-//         })
-//         .catch((error) => {
-//         const errorCode = error.code;
-//         const errorMessage = error.message;
-//         // ..
-//         window.alert(errorCode + errorMessage)
-//         });
-        
-//     })
+    //     })
 
-// // export function renderListCardLibrary(data) {
- 
-// //     const markup = itemsTemplate({...data });
-// //     refs.gallery_films.innerHTML(markup);
-// // }
+    //     document.getElementById("register").addEventListener('click', function(){
+    //     const email = document.getElementById('email').value
+    //     const password = document.getElementById('pass').value
+
+    //     console.log(email)
+    //     console.log(password)
+
+    //     createUserWithEmailAndPassword(auth, email, password)
+    //         .then((userCredential) => {
+    //         // Signed in
+    //             const user = userCredential.user;
+    //             console.log(user)
+    //         // ...
+    //             window.alert('Created')
+    //             // modal.classList.add('visually-hidden');
+    //         })
+    //         .catch((error) => {
+    //         const errorCode = error.code;
+    //         const errorMessage = error.message;
+    //         // ..
+    //         window.alert(errorCode + errorMessage)
+    //         });
+
+    //     })
+
+    // // export function renderListCardLibrary(data) {
+
+    // //     const markup = itemsTemplate({...data });
+    // //     refs.gallery_films.innerHTML(markup);
+    // // }
 
 
     films = []
-   getDocs(colRef)
-     .then((snapshot) => {
-         console.log(snapshot.docs)
-         snapshot.docs.forEach((doc) => {
-            films.push({ ...doc.data(), id: doc._document.data.value.mapValue.fields.id.integerValue })
-      })
-             const dataLibrary = films.filter(film => film.status == 'watched' && film.user == userEmail)
+    getDocs(colRef)
+        .then((snapshot) => {
+            console.log(snapshot.docs)
+            snapshot.docs.forEach((doc) => {
+                films.push({ ...doc.data(), id: doc._document.data.value.mapValue.fields.id.integerValue })
+            })
+            const dataLibrary = films.filter(film => film.status == 'watched' && film.user == userEmail)
 
-       renderListCard(dataLibrary)
-    })
-    .catch(err => {
-        console.log(err.message)
-       
-    }) 
- })
+            renderListCard(dataLibrary)
+        })
+        .catch(err => {
+            console.log(err.message)
 
-refQueueBtn.addEventListener('click', (e) => {
+        })
+})
+
+refQueueBtn.addEventListener('click', openQueue);
+export function openQueue(e) {
     refWatchedBtn.removeAttribute('disabled', true)
     refQueueBtn.setAttribute('disabled', true)
-     films = []
-   getDocs(colRef)
-     .then((snapshot) => {
-         console.log(snapshot.docs)
-         snapshot.docs.forEach((doc) => {
-            films.push({
-              ...doc.data(),
-              id: doc._document.data.value.mapValue.fields.id.integerValue,
-            });
-      })
-             const dataLibrary = films.filter(film => film.status == 'queue' && film.user == userEmail)
+    refWatchedBtn.classList.remove('active-btn')
+    refQueueBtn.classList.add('active-btn')
 
-       renderListCard(dataLibrary)
-    })
-    .catch(err => {
-        console.log(err.message)
-       
-    }) 
- })
+    films = []
+    getDocs(colRef)
+        .then((snapshot) => {
+            console.log(snapshot.docs)
+            snapshot.docs.forEach((doc) => {
+                films.push({
+                    ...doc.data(),
+                    id: doc._document.data.value.mapValue.fields.id.integerValue,
+                });
+            })
+            const dataLibrary = films.filter(film => film.status == 'queue' && film.user == userEmail)
+
+            renderListCard(dataLibrary)
+        })
+        .catch(err => {
+            console.log(err.message)
+
+        })
+}
 refHome.addEventListener('click',
 
     (e) => {
@@ -230,29 +236,29 @@ refLibrary.addEventListener('click', (e) => {
     refs.idPagination.classList.add('visually-hidden')
     if (userEmail == false) {
         Notiflix.Notify.failure('LOG IN PLZ')
-            //    modal.classList.remove('visually-hidden');
+        //    modal.classList.remove('visually-hidden');
     }
     films = []
-   getDocs(colRef)
-     .then((snapshot) => {
-         console.log(snapshot.docs)
-         snapshot.docs.forEach((doc) => {
-            films.push({
-              ...doc.data(),
-              id: doc._document.data.value.mapValue.fields.id.integerValue,
-            });
-      })
-             const dataLibrary = films.filter(film => film.status == 'queue' && film.user == userEmail)
+    getDocs(colRef)
+        .then((snapshot) => {
+            console.log(snapshot.docs)
+            snapshot.docs.forEach((doc) => {
+                films.push({
+                    ...doc.data(),
+                    id: doc._document.data.value.mapValue.fields.id.integerValue,
+                });
+            })
+            const dataLibrary = films.filter(film => film.status == 'queue' && film.user == userEmail)
 
-       renderListCard(dataLibrary)
-    })
-    .catch(err => {
-        console.log(err.message)
-       
-    }) 
+            renderListCard(dataLibrary)
+        })
+        .catch(err => {
+            console.log(err.message)
+
+        })
 })
 
-document.getElementById("login").addEventListener('click', function() {
+document.getElementById("login").addEventListener('click', function () {
     const email = document.getElementById('email').value
     const password = document.getElementById('pass').value
 
@@ -277,7 +283,7 @@ document.getElementById("login").addEventListener('click', function() {
 
 })
 
-document.getElementById("register").addEventListener('click', function() {
+document.getElementById("register").addEventListener('click', function () {
     const email = document.getElementById('email').value
     const password = document.getElementById('pass').value
 
@@ -289,9 +295,9 @@ document.getElementById("register").addEventListener('click', function() {
             // Signed in 
             const user = userCredential.user;
             console.log(user)
-                // ...
+            // ...
             window.alert('Created')
-                // modal.classList.add('visually-hidden');
+            // modal.classList.add('visually-hidden');
         })
         .catch((error) => {
             const errorCode = error.code;
