@@ -54,7 +54,7 @@ refWatchedBtn.addEventListener('click', (e) => {
     refQueueBtn .removeAttribute('disabled', true)
   
     // refQueueBtn.textContent = "ff"
-   
+    films = []
    getDocs(colRef)
      .then((snapshot) => {
          console.log(snapshot.docs)
@@ -74,7 +74,7 @@ refWatchedBtn.addEventListener('click', (e) => {
 refQueueBtn.addEventListener('click', (e) => {
      refWatchedBtn.removeAttribute('disabled', true)
     refQueueBtn.setAttribute('disabled', true)
-   
+     films = []
    getDocs(colRef)
      .then((snapshot) => {
          console.log(snapshot.docs)
@@ -91,7 +91,7 @@ refQueueBtn.addEventListener('click', (e) => {
     }) 
  })
 refHome.addEventListener('click',
-
+ 
     (e) => {
         refLibrary.removeAttribute('disabled', true)
         getPopularMoviesData()
@@ -103,6 +103,7 @@ refLibrary.addEventListener('click', (e) => {
         Notiflix.Notify.failure('LOG IN PLZ')
                 //    modal.classList.remove('visually-hidden');
     }
+    films = []
    getDocs(colRef)
      .then((snapshot) => {
          console.log(snapshot.docs)
