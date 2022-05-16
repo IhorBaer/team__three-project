@@ -214,6 +214,7 @@ refWatchedBtn.addEventListener('click', (e) => {
                 // return refs.gallery_films.innerHTML = 'Пусто';
                 return refs.gallery_films.innerHTML = `
                 <li class="ship">
+                <p class="login-tex"> tab watched is empty </p>
                 <div class="ship__div">
                 </div>
                 </li>`
@@ -253,6 +254,7 @@ function openQueue(e) {
                 // return refs.gallery_films.innerHTML = 'Пусто';
                 return refs.gallery_films.innerHTML = `
                 <li class="ship">
+                <p class="login-tex"> tab queue is empty </p>
                 <div class="ship__div">
                 </div>
                 </li>`
@@ -281,8 +283,16 @@ refLibrary.addEventListener('click', (e) => {
         refQueueBtn.disabled = true;
         refWatchedBtn.disabled = true;
         Notiflix.Notify.failure('LOG IN PLZ')
-        return refs.gallery_films.innerHTML = 'Потрібно залогінитися';
+        // return refs.gallery_films.innerHTML = 'Потрібно залогінитися';
         //    modal.classList.remove('visually-hidden');
+
+        return refs.gallery_films.innerHTML = `
+                <li class="ship">
+                <p class="login-tex"> log in please </p>
+                <div class="ship__div">
+                </div>
+                </li>`
+
     }
     // refQueueBtn.disabled = false;
     // refWatchedBtn.disabled = false;

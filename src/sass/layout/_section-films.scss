@@ -47,14 +47,65 @@
 
 .ship{
     width: 100%;
+
+    @media screen and (min-width: 768px) {
+            margin-left: 32px;
+            margin-bottom: 32px;
+        }
+    
+        @media screen and (min-width: 1024px) {
+            margin-left: 16px;
+        }
 }
+
 .ship__div{
-    width: 874px;
-    height: 550px;
+    width: 280px;
+    height: 176px;
     margin: 0 auto;
 
-    background-image: url(/images/ship/ship.jpg);
-    background-size: covet;
-        background-repeat: no-repeat;
-        background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    background-image: url('/images/ship/ship-mobile.jpg');
+    
+        @media screen and (min-device-pixel-ratio: 2),
+        screen and (min-resolution: 192dpi),
+        screen and (min-resolution: 2dppx) {
+            background-image: url('/images/ship/ship-mobile@2x.jpg');
+        }
+
+    @media screen and (min-width: 768px) {
+        width: 600px;
+        height: 378px;
+
+        background-image: url('/images/ship/ship-tablet.jpg');
+        
+        @media screen and (min-device-pixel-ratio: 2),
+        screen and (min-resolution: 192dpi),
+        screen and (min-resolution: 2dppx) {
+        background-image: url('/images/ship/ship-tablet@2x.jpg');
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        width: 874px;
+        height: 550px;
+
+        background-image: url('/images/ship/ship-desktop.jpg');
+        
+        @media screen and (min-device-pixel-ratio: 2),
+        screen and (min-resolution: 192dpi),
+        screen and (min-resolution: 2dppx) {
+        background-image: url('/images/ship/ship-desktop@2x.jpg');
+        }
+    }
+}
+
+.login-tex{
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--error-text-header-color);
+    text-transform: uppercase;
+    font-size: 20px;
 }
