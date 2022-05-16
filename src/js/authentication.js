@@ -11,7 +11,8 @@ import Notiflix from 'notiflix';
 // import { movieApiService } from './render_movies';
 // export { films };
 import { getPopularMoviesData } from './render_popular_movies';
-import { renderListCard } from './base/render';
+import { renderListCard } from './base/render-lib';
+import { genres } from './base/genres';
 import { refs } from './base/refs';
 // import { filmApi } from './modal';
 // import { makeFilmModalMarkup } from './modal';
@@ -23,16 +24,16 @@ export let userEmail = ""
 const dataData = new FetchApi()
 const modal = document.querySelector('.auth-modal')
 const openModal = document.querySelector('.open_auth-js')
-// console.log(openModal)
+    // console.log(openModal)
 const shipRef = document.querySelector('.ship')
-// const firebaseConfig = {
-//     apiKey: "AIzaSyCgHWVD37iS9SyzyjybiROGSJgrZBuPF74",
-//     authDomain: "fir-g3-a635e.firebaseapp.com",
-//     projectId: "fir-g3-a635e",
-//     storageBucket: "fir-g3-a635e.appspot.com",
-//     messagingSenderId: "387248887615",
-//     appId: "1:387248887615:web:53bf0176f3707f756ae58a"
-// };
+    // const firebaseConfig = {
+    //     apiKey: "AIzaSyCgHWVD37iS9SyzyjybiROGSJgrZBuPF74",
+    //     authDomain: "fir-g3-a635e.firebaseapp.com",
+    //     projectId: "fir-g3-a635e",
+    //     storageBucket: "fir-g3-a635e.appspot.com",
+    //     messagingSenderId: "387248887615",
+    //     appId: "1:387248887615:web:53bf0176f3707f756ae58a"
+    // };
 
 const firebaseConfig = {
     apiKey: 'AIzaSyBzIGGSufXWhiy2amlL_ka5f0X-VeLnSgQ',
@@ -59,8 +60,8 @@ const refLibrary = document.getElementById('library')
 const refHome = document.getElementById('home')
 const refWatchedBtn = document.getElementById('watched')
 const refQueueBtn = document.getElementById('queue')
-// const addQueueRef = document.getElementById('add-queue-js')
-// const addWatchedRef = document.getElementById('add-watched-js')
+    // const addQueueRef = document.getElementById('add-queue-js')
+    // const addWatchedRef = document.getElementById('add-watched-js')
 
 refLogo.addEventListener('click', (e) => {
     refs.idPagination.classList.remove('visually-hidden')
@@ -202,7 +203,7 @@ refWatchedBtn.addEventListener('click', (e) => {
         .then((snapshot) => {
             console.log(snapshot.docs)
             snapshot.docs.forEach((doc) => {
-                films.push({ ...doc.data(), id: doc._document.data.value.mapValue.fields.id.integerValue })
+                films.push({...doc.data(), id: doc._document.data.value.mapValue.fields.id.integerValue })
             })
             const dataLibrary = films.filter(film => film.status == 'watched' && film.user == userEmail)
             if (dataLibrary.length === 0) {
@@ -215,7 +216,9 @@ refWatchedBtn.addEventListener('click', (e) => {
                 </li>`
 
             }
-            renderListCard(dataLibrary)
+            const formattedData = dataFormat(dataLibrary, genres)
+            renderListCard(formattedData)
+
         })
         .catch(err => {
             console.log(err.message)
@@ -224,6 +227,7 @@ refWatchedBtn.addEventListener('click', (e) => {
 })
 
 refQueueBtn.addEventListener('click', openQueue);
+
 function openQueue(e) {
     refWatchedBtn.removeAttribute('disabled', true)
     refQueueBtn.setAttribute('disabled', true)
@@ -250,7 +254,9 @@ function openQueue(e) {
                 </div>
                 </li>`
             }
-            renderListCard(dataLibrary)
+            const formattedData = dataFormat(dataLibrary, genres)
+            renderListCard(formattedData)
+
         })
         .catch(err => {
             console.log(err.message)
@@ -278,17 +284,17 @@ refLibrary.addEventListener('click', (e) => {
     refQueueBtn.disabled = false;
     refWatchedBtn.disabled = false;
     openQueue()
-    // films = []
-    // getDocs(colRef)
-    //     .then((snapshot) => {
-    //         console.log(snapshot.docs)
-    //         snapshot.docs.forEach((doc) => {
-    //             films.push({
-    //                 ...doc.data(),
-    //                 id: doc._document.data.value.mapValue.fields.id.integerValue,
-    //             });
-    //         })
-    //         const dataLibrary = films.filter(film => film.status == 'queue' && film.user == userEmail)
+        // films = []
+        // getDocs(colRef)
+        //     .then((snapshot) => {
+        //         console.log(snapshot.docs)
+        //         snapshot.docs.forEach((doc) => {
+        //             films.push({
+        //                 ...doc.data(),
+        //                 id: doc._document.data.value.mapValue.fields.id.integerValue,
+        //             });
+        //         })
+        //         const dataLibrary = films.filter(film => film.status == 'queue' && film.user == userEmail)
 
     //         renderListCard(dataLibrary)
     //     })
@@ -298,7 +304,7 @@ refLibrary.addEventListener('click', (e) => {
     //     })
 })
 
-document.getElementById("login").addEventListener('click', function () {
+document.getElementById("login").addEventListener('click', function() {
     const email = document.getElementById('email').value
     const password = document.getElementById('pass').value
 
@@ -323,7 +329,7 @@ document.getElementById("login").addEventListener('click', function () {
 
 })
 
-document.getElementById("register").addEventListener('click', function () {
+document.getElementById("register").addEventListener('click', function() {
     const email = document.getElementById('email').value
     const password = document.getElementById('pass').value
 
@@ -335,9 +341,9 @@ document.getElementById("register").addEventListener('click', function () {
             // Signed in 
             const user = userCredential.user;
             console.log(user)
-            // ...
+                // ...
             window.alert('Created')
-            // modal.classList.add('visually-hidden');
+                // modal.classList.add('visually-hidden');
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -347,6 +353,36 @@ document.getElementById("register").addEventListener('click', function () {
         });
 
 })
+
+function dataFormat(data, genres) {
+    const formattedData = [...data];
+    formattedData.forEach(item => {
+        if (item.release_date) {
+            item.release_date = item.release_date.slice(0, 4);
+        }
+
+        const genresArray = item.genre_ids.reduce((acc, id) => {
+            let genreToFind = genres.find(genre => genre.id === id.id);
+            if (genreToFind) {
+                acc.push(genreToFind.name);
+            }
+            return acc;
+        }, []);
+
+
+
+        if (genresArray.length > 3) {
+            genresArray.splice(3);
+            genresArray[2] = 'Other';
+        } else if (genresArray.length === 0) {
+            genresArray[0] = 'Genre unknown';
+        }
+
+        item.genres = genresArray;
+    });
+
+    return formattedData;
+}
 
 // export function renderListCardLibrary(data) {
 

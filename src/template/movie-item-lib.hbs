@@ -1,0 +1,41 @@
+{{#each this}}
+  <li class='films__gallery-item animate__animated animate__fadeIn'>
+
+    <a href='#' class='list-card__link' data-modal-open data-card-id='{{id}}'>
+      <div class='"moviе-item__img-container'>
+        {{#if poster_path}}
+          <img
+            src='https://image.tmdb.org/t/p/w300/{{poster_path}}'
+            alt='poster {{title}}'
+            loading='lazy'
+            class='moviе-item__img'
+            data-id='{{id}}'
+          />
+        {{else}}
+          <img
+            src='https://sd.keepcalms.com/i/keep-calm-poster-not-found.png'
+            alt='poster not found'
+            class='lazyload'
+          />
+        {{/if}}
+      </div>
+      <div class='moviе-stats'>
+        <h2 class='moviе-stats__title'>{{title}}</h2>
+        <div class='moviе-stats__info'>
+          <p class='moviе-genre'>
+            {{#each genres}}
+              {{#if @last}}
+                {{this}}
+              {{else}}
+                {{this}},
+              {{/if}}{{/each}}
+            |
+            {{release_date}}
+            |
+            <span class='moviе-vote'>{{vote_average}}</span>
+          </p>
+        </div>
+      </div>
+    </a>
+  </li>
+{{/each}}
