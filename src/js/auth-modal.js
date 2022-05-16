@@ -9,7 +9,7 @@ const refs = {
 
 refs.openModal.addEventListener('click', openModal);
 
-function closeModal(e) {
+export function closeModal(e) {
   // if (userEmail) {
   modalAddHidden();
   refs.closeModalBtn.removeEventListener('click', closeModal);

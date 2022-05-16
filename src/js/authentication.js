@@ -14,6 +14,7 @@ import { getPopularMoviesData } from './render_popular_movies';
 import { renderListCard } from './base/render-lib';
 import { genres } from './base/genres';
 import { refs } from './base/refs';
+import { closeModal } from './auth-modal';
 // import { filmApi } from './modal';
 // import { makeFilmModalMarkup } from './modal';
 import FetchApi from './api/fetch_movies'
@@ -24,16 +25,16 @@ export let userEmail = ""
 const dataData = new FetchApi()
 const modal = document.querySelector('.auth-modal')
 const openModal = document.querySelector('.open_auth-js')
-    // console.log(openModal)
+// console.log(openModal)
 const shipRef = document.querySelector('.ship')
-    // const firebaseConfig = {
-    //     apiKey: "AIzaSyCgHWVD37iS9SyzyjybiROGSJgrZBuPF74",
-    //     authDomain: "fir-g3-a635e.firebaseapp.com",
-    //     projectId: "fir-g3-a635e",
-    //     storageBucket: "fir-g3-a635e.appspot.com",
-    //     messagingSenderId: "387248887615",
-    //     appId: "1:387248887615:web:53bf0176f3707f756ae58a"
-    // };
+// const firebaseConfig = {
+//     apiKey: "AIzaSyCgHWVD37iS9SyzyjybiROGSJgrZBuPF74",
+//     authDomain: "fir-g3-a635e.firebaseapp.com",
+//     projectId: "fir-g3-a635e",
+//     storageBucket: "fir-g3-a635e.appspot.com",
+//     messagingSenderId: "387248887615",
+//     appId: "1:387248887615:web:53bf0176f3707f756ae58a"
+// };
 
 const firebaseConfig = {
     apiKey: 'AIzaSyBzIGGSufXWhiy2amlL_ka5f0X-VeLnSgQ',
@@ -60,8 +61,8 @@ const refLibrary = document.getElementById('library')
 const refHome = document.getElementById('home')
 const refWatchedBtn = document.getElementById('watched')
 const refQueueBtn = document.getElementById('queue')
-    // const addQueueRef = document.getElementById('add-queue-js')
-    // const addWatchedRef = document.getElementById('add-watched-js')
+// const addQueueRef = document.getElementById('add-queue-js')
+// const addWatchedRef = document.getElementById('add-watched-js')
 
 refLogo.addEventListener('click', (e) => {
     refs.idPagination.classList.remove('visually-hidden')
@@ -203,7 +204,7 @@ refWatchedBtn.addEventListener('click', (e) => {
         .then((snapshot) => {
             console.log(snapshot.docs)
             snapshot.docs.forEach((doc) => {
-                films.push({...doc.data(), id: doc._document.data.value.mapValue.fields.id.integerValue })
+                films.push({ ...doc.data(), id: doc._document.data.value.mapValue.fields.id.integerValue })
             })
             const dataLibrary = films.filter(film => film.status == 'watched' && film.user == userEmail)
             if (dataLibrary.length === 0) {
@@ -284,17 +285,17 @@ refLibrary.addEventListener('click', (e) => {
     refQueueBtn.disabled = false;
     refWatchedBtn.disabled = false;
     openQueue()
-        // films = []
-        // getDocs(colRef)
-        //     .then((snapshot) => {
-        //         console.log(snapshot.docs)
-        //         snapshot.docs.forEach((doc) => {
-        //             films.push({
-        //                 ...doc.data(),
-        //                 id: doc._document.data.value.mapValue.fields.id.integerValue,
-        //             });
-        //         })
-        //         const dataLibrary = films.filter(film => film.status == 'queue' && film.user == userEmail)
+    // films = []
+    // getDocs(colRef)
+    //     .then((snapshot) => {
+    //         console.log(snapshot.docs)
+    //         snapshot.docs.forEach((doc) => {
+    //             films.push({
+    //                 ...doc.data(),
+    //                 id: doc._document.data.value.mapValue.fields.id.integerValue,
+    //             });
+    //         })
+    //         const dataLibrary = films.filter(film => film.status == 'queue' && film.user == userEmail)
 
     //         renderListCard(dataLibrary)
     //     })
@@ -304,7 +305,7 @@ refLibrary.addEventListener('click', (e) => {
     //     })
 })
 
-document.getElementById("login").addEventListener('click', function() {
+document.getElementById("login").addEventListener('click', function () {
     const email = document.getElementById('email').value
     const password = document.getElementById('pass').value
 
@@ -318,7 +319,7 @@ document.getElementById("login").addEventListener('click', function() {
             // ...
             Notiflix.Notify.info(`You are logged in ${email}`);
             // modal.classList.add('visually-hidden');
-
+            closeModal()
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -329,7 +330,7 @@ document.getElementById("login").addEventListener('click', function() {
 
 })
 
-document.getElementById("register").addEventListener('click', function() {
+document.getElementById("register").addEventListener('click', function () {
     const email = document.getElementById('email').value
     const password = document.getElementById('pass').value
 
@@ -341,9 +342,9 @@ document.getElementById("register").addEventListener('click', function() {
             // Signed in 
             const user = userCredential.user;
             console.log(user)
-                // ...
+            // ...
             window.alert('Created')
-                // modal.classList.add('visually-hidden');
+            // modal.classList.add('visually-hidden');
         })
         .catch((error) => {
             const errorCode = error.code;
