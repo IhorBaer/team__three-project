@@ -15,6 +15,7 @@ import { renderListCard } from './base/render-lib';
 import { genres } from './base/genres';
 import { refs } from './base/refs';
 import { closeModal } from './auth-modal';
+const btn = document.querySelector('.buttons');
 // import { filmApi } from './modal';
 // import { makeFilmModalMarkup } from './modal';
 import FetchApi from './api/fetch_movies'
@@ -282,8 +283,9 @@ refLibrary.addEventListener('click', (e) => {
         return refs.gallery_films.innerHTML = 'Потрібно залогінитися';
         //    modal.classList.remove('visually-hidden');
     }
-    refQueueBtn.disabled = false;
-    refWatchedBtn.disabled = false;
+    // refQueueBtn.disabled = false;
+    // refWatchedBtn.disabled = false;
+    btn.classList.remove('display-none');
     openQueue()
     // films = []
     // getDocs(colRef)
