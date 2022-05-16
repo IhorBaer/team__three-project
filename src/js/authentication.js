@@ -26,6 +26,7 @@ export let userEmail = ""
 const dataData = new FetchApi()
 const modal = document.querySelector('.auth-modal')
 const openModal = document.querySelector('.open_auth-js')
+const logIn = document.querySelector('.login-header')
 // console.log(openModal)
 const shipRef = document.querySelector('.ship')
 // const firebaseConfig = {
@@ -322,6 +323,11 @@ document.getElementById("login").addEventListener('click', function () {
             Notiflix.Notify.info(`You are logged in ${email}`);
             // modal.classList.add('visually-hidden');
             closeModal()
+            logIn.textContent = 'Log OUT';
+            logIn.classList.remove('login-header')
+            logIn.classList.add('logout-header')
+
+
         })
         .catch((error) => {
             const errorCode = error.code;
