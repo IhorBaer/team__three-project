@@ -33,7 +33,7 @@ refLibrary.addEventListener('click', event => {
   if (activeElement) {
     activeElement.classList.remove('current-link');
     form.classList.add('display-none');
-    btn.classList.remove('display-none');
+    // btn.classList.remove('display-none');
     refHeader.classList.remove('header__background');
     refHeader.classList.add('header__background-library');
   }
