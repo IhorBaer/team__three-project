@@ -1,7 +1,7 @@
 import { userEmail } from "./authentication";
 
 const refs = {
-  openModal: document.querySelector('.films__gallery'),
+  openModal: document.querySelector('#login-header'),
   closeModalBtn: document.querySelector('.auth-modal-close'),
   modal: document.querySelector('.auth-modal'),
   body: document.querySelector('body'),
@@ -10,15 +10,15 @@ const refs = {
 refs.openModal.addEventListener('click', openModal);
 
 function closeModal(e) {
-  if (userEmail) {
-    modalAddHidden();
-    refs.closeModalBtn.removeEventListener('click', closeModal);
-    refs.modal.removeEventListener('click', onBackdropClick);
-    refs.body.removeEventListener('keydown', onEscClick);
-    scroll();
-  }
+  // if (userEmail) {
+  modalAddHidden();
+  refs.closeModalBtn.removeEventListener('click', closeModal);
+  refs.modal.removeEventListener('click', onBackdropClick);
+  refs.body.removeEventListener('keydown', onEscClick);
+  scroll();
+  // }
 }
-function openModal() {
+export function openModal() {
   if (userEmail == false) {
     modalRemoveHidden();
     scroll();

@@ -11,6 +11,7 @@ import {
 } from 'firebase/auth'
 import { userEmail } from './authentication';
 import { renderListCard } from './base/render';
+import { openModal } from './auth-modal';
 // console.log(renderListCard());
 // console.log(userEmail)
 
@@ -74,60 +75,71 @@ async function onOpenModal(event) {
   const btnW = document.querySelector('.btnW');
 
   btnW.addEventListener('click', () => {
-    btnW.setAttribute('disabled', true);
+    if (!userEmail) {
+      openModal()
+    }
 
-    btnW.classList.remove('modal__button');
-    btnW.classList.add('modal__button-disabled');
-    btnW.textContent = 'in the watched';
-    // textContent = 'DELETE '
+    if (userEmail) {
+      btnW.setAttribute('disabled', true);
+
+      btnW.classList.remove('modal__button');
+      btnW.classList.add('modal__button-disabled');
+      btnW.textContent = 'in the watched';
+      // textContent = 'DELETE '
 
 
-    addDoc(colRef, {
-      genre_ids: film.genres,
-      poster_path: film.poster_path,
-      id: film.id,
-      title: film.original_title,
-      release_date: film.release_date,
-      vote_average: film.vote_average,
-      status: 'watched',
-      user: userEmail,
+      addDoc(colRef, {
+        genre_ids: film.genres,
+        poster_path: film.poster_path,
+        id: film.id,
+        title: film.original_title,
+        release_date: film.release_date,
+        vote_average: film.vote_average,
+        status: 'watched',
+        user: userEmail,
 
-    })
-      .then(() => {
-        Notiflix.Notify.info('ADD FILM TO WATCHED')
+      })
+        .then(() => {
+          Notiflix.Notify.info('ADD FILM TO WATCHED')
 
-      }).catch(err => {
-        console.log(err.message);
-      });
+        }).catch(err => {
+          console.log(err.message);
+        });
+    }
   })
 
   const btnQ = document.querySelector('.btnQ');
   btnQ.addEventListener('click', () => {
-    btnQ.setAttribute('disabled', true);
+    if (!userEmail) {
+      openModal()
+    }
+    if (userEmail) {
+      btnQ.setAttribute('disabled', true);
 
-    btnQ.classList.remove('modal__button');
-    btnQ.classList.add('modal__button-disabled');
-    btnQ.textContent = 'in the queue';
+      btnQ.classList.remove('modal__button');
+      btnQ.classList.add('modal__button-disabled');
+      btnQ.textContent = 'in the queue';
 
-    // if(film.id == db.films){return}  
-    console.log(film.id)
-    addDoc(colRef, {
-      genre_ids: film.genres,
-      poster_path: film.poster_path,
-      id: film.id,
-      title: film.original_title,
-      release_date: film.release_date,
-      vote_average: film.vote_average,
-      status: 'queue',
-      user: userEmail,
+      // if(film.id == db.films){return}  
+      console.log(film.id)
+      addDoc(colRef, {
+        genre_ids: film.genres,
+        poster_path: film.poster_path,
+        id: film.id,
+        title: film.original_title,
+        release_date: film.release_date,
+        vote_average: film.vote_average,
+        status: 'queue',
+        user: userEmail,
 
-    })
-      .then(() => {
-        Notiflix.Notify.info('ADD FILM TO QUEUE')
+      })
+        .then(() => {
+          Notiflix.Notify.info('ADD FILM TO QUEUE')
 
-      }).catch(err => {
-        console.log(err.message);
-      });
+        }).catch(err => {
+          console.log(err.message);
+        });
+    }
   })
 
 }
