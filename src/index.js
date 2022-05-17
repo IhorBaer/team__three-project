@@ -13,3 +13,4 @@ import './js/search-film';
 import './js/scroll';
 // import './js/base/loader';
 import './js/base/loading';
+import './js/theme-dark';
