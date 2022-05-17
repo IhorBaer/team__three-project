@@ -61,6 +61,7 @@ const auth = getAuth();
 setPersistence(auth, browserSessionPersistence);
 // дані для відмальовування бібліотеки перемінна films 
 // import { films } from "module-name";
+
 let films = [];
 const refLogo = document.querySelector('.logo')
 const refLibrary = document.getElementById('library')
@@ -427,3 +428,18 @@ onAuthStateChanged(auth, (user) => {
     console.log('Юзер залишається на сайті', user)
 });
 
+
+const serializedState = sessionStorage.getItem("firebase:authUser:AIzaSyBzIGGSufXWhiy2amlL_ka5f0X-VeLnSgQ:[DEFAULT]");
+const parsedSettings = JSON.parse(serializedState);
+// console.log(parsedSettings);
+// console.log(typeof serializedState);
+
+loockSesStor()
+function loockSesStor() {
+    if (parsedSettings) {
+        console.log('Залогінився');
+        userEmail = parsedSettings.email
+        return
+    }
+    console.log('Не залогінився');
+}
