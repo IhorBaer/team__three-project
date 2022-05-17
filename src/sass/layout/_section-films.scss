@@ -109,3 +109,19 @@
     text-transform: uppercase;
     font-size: 20px;
 }
+
+// темна тема
+
+.theme {
+    position: fixed;
+    left: 15px;
+    top: 270px;
+    padding: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.theme svg {
+    cursor: pointer;
+}

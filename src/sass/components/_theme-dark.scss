@@ -1,0 +1,91 @@
+// BODY
+
+body.theme-light {
+    color: var(--movie-title-color);
+    background-color: #ffffff;
+}
+
+body.theme-dark {
+    color: #ffffff;
+    background-color: #111111;
+}
+
+// Модалка аутентифікації
+
+.auth-modal-container.theme-light {
+    background-color: #ffffff;
+}
+
+.auth-modal-container.theme-dark {
+    background-color: #222222;
+}
+
+.input-name-dark.theme-light, .input-email-dark.theme-light, .input-password-dark.theme-light {
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    transition: border-color 250ms var(--time--animation);
+    background-color: #ffffff;
+
+    &:focus {
+        outline: none;
+        border-color: var(--accent-input-color);
+    }
+}
+
+.input-name-dark.theme-dark, .input-email-dark.theme-dark, .input-password-dark.theme-dark {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: border-color 250ms var(--time--animation);
+    background-color: #555555;
+
+    &:focus {
+        outline: none;
+        border-color: var(--accent-input-color);
+    }
+}
+
+// modal one film
+
+.modal.theme-light {
+    background-color: #ffffff;
+}
+
+.modal.theme-dark {
+    background-color: #222222;
+}
+
+// modal team
+
+.modal-container.theme-light {
+    background-color: #ffffff;
+}
+
+.modal-container.theme-dark {
+    background-color: #222222;
+}
+
+// footer
+
+.footer-container.theme-light {
+    background-color: var(--footer-background-color);
+}
+
+.footer-container.theme-dark {
+    background-color: #111111;
+}
+
+.theme.theme-light {
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.theme.theme-dark {
+    background-color: #111111;
+    box-shadow: 0 0 30px rgba(175, 167, 167, 0.1);
+}
+
+.change-theme-light.theme-light {
+    fill: #000000;
+}
+
+.change-theme-light.theme-dark {
+    fill: #ffffff;
+}

@@ -52,7 +52,7 @@
 }
 
 .btn-close__icon {
-    fill: black;
+    fill: var(--modal-close-icon);
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     
     .btn-modal-close:hover &,
@@ -65,7 +65,7 @@
 .modal__title {
     display: flex;
     font-family: Roboto;
-    color: black;
+    color: var(--primary-color-text-modal);
     font-size: 23px;
     font-style: normal;
     font-weight: 500;
