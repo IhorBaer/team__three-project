@@ -31,6 +31,8 @@ const modal = document.querySelector('.auth-modal');
 const openModal = document.querySelector('.open_auth-js');
 const logIn = document.querySelector('#login-header');
 const logOut = document.querySelector('#logout-header');
+const itemLogoutHeader = document.querySelector('.item__logout-header');
+const itemLogoinHeader = document.querySelector('.item__login-header');
 // console.log(openModal)
 const shipRef = document.querySelector('.ship')
 // const firebaseConfig = {
@@ -338,6 +340,9 @@ document.getElementById("login").addEventListener('click', function () {
             Notiflix.Notify.info(`You are logged in ${email}`);
             // modal.classList.add('visually-hidden');
             closeModal()
+            location.reload();
+
+            itemLogoutHeader.classList.remove('display-none');
 
             // logIn.textContent = 'Log OUT';
             // logIn.classList.remove('login-header')
@@ -419,6 +424,7 @@ logOut.addEventListener('click', () => {
     signOut(auth)
         .then(() => {
             console.log('вийшов з аккаунту');
+            location.reload();
         }).catch((err) => {
             console.log(err.message)
         })
@@ -439,7 +445,11 @@ function loockSesStor() {
     if (parsedSettings) {
         console.log('Залогінився');
         userEmail = parsedSettings.email
+        itemLogoinHeader.classList.add('display-none');
+        itemLogoutHeader.classList.remove('display-none');
         return
     }
     console.log('Не залогінився');
+    itemLogoutHeader.classList.add('display-none');
+    itemLogoinHeader.classList.remove('display-none');
 }
