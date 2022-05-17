@@ -5,11 +5,9 @@ import { initializeApp } from 'firebase/app'
 import { getFirestore, collection, getDocs, addDoc, deleteDoc, doc } from 'firebase/firestore'
 import Notiflix from 'notiflix';
 import {
-    getAuth,
-    createUserWithEmailAndPassword,
+    getAuth, createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
-    getMultiFactorResolver,
-    onAuthStateChanged
+    getMultiFactorResolver, onAuthStateChanged
 } from 'firebase/auth'
 import { userEmail } from './authentication';
 import { renderListCard } from './base/render';
@@ -56,43 +54,10 @@ refs.openModalItem.addEventListener('click', onOpenModal);
 refs.closeModalBtn.addEventListener('click', onCloseModal);
 refs.backdrop.addEventListener('click', onBackdropClick);
 
+
+
 async function onOpenModal(event) {
-
-  event.preventDefault();
-
-  if (event.target === event.currentTarget) {
-    return;
-  }
-
-  window.addEventListener('keydown', onEscKeyPress);
-  refs.backdrop.classList.remove('visually-hidden');
-  document.body.classList.add('modal-open');
-
-  filmApi.movieId = event.target.dataset.id;
-  const film = await filmApi.getMovieInFoBuyId();
-  // console.log(film.id);
-  console.log(film)
-  refs.modal.insertAdjacentHTML('afterbegin', makeFilmModalMarkup(film));
-  const activeBot = document.querySelector('.current-link.libric');
-  const btnW = document.querySelector('.btnW');
-  const btnQdisr = document.querySelector('.btnQdis')
-
-  if (activeBot) {
-    // const btnW = document.querySelector('.btnW');
-    btnW.classList.add('display-none');
-    btnQdisr.classList.add('display-none');
-    document.querySelector('.btnWdelete').classList.remove('display-none')
-    document.querySelector('.btnQdelete').classList.remove('display-none')
-  }
-
-  btnW.addEventListener('click', () => {
-    if (!userEmail) {
-      openModal()
-    }
-
-    if (userEmail) {
-      btnW.setAttribute('disabled', true);
-
+    event.preventDefault();
 
     if (event.target === event.currentTarget) {
         return;
@@ -107,8 +72,17 @@ async function onOpenModal(event) {
     // console.log(film.id);
     console.log(film)
     refs.modal.insertAdjacentHTML('afterbegin', makeFilmModalMarkup(film));
-
+    const activeBot = document.querySelector('.current-link.libric');
     const btnW = document.querySelector('.btnW');
+    const btnQdisr = document.querySelector('.btnQdis')
+
+    if (activeBot) {
+        // const btnW = document.querySelector('.btnW');
+        btnW.classList.add('display-none');
+        btnQdisr.classList.add('display-none');
+        document.querySelector('.btnWdelete').classList.remove('display-none')
+        document.querySelector('.btnQdelete').classList.remove('display-none')
+    }
 
     btnW.addEventListener('click', () => {
         if (!userEmail) {
@@ -125,16 +99,16 @@ async function onOpenModal(event) {
 
 
             addDoc(colRef, {
-                    genre_ids: film.genres,
-                    poster_path: film.poster_path,
-                    id: film.id,
-                    title: film.original_title,
-                    release_date: film.release_date,
-                    vote_average: film.vote_average,
-                    status: 'watched',
-                    user: userEmail,
+                genre_ids: film.genres,
+                poster_path: film.poster_path,
+                id: film.id,
+                title: film.original_title,
+                release_date: film.release_date,
+                vote_average: film.vote_average,
+                status: 'watched',
+                user: userEmail,
 
-                })
+            })
                 .then(() => {
                     Notiflix.Notify.info('ADD FILM TO WATCHED')
 
@@ -159,16 +133,16 @@ async function onOpenModal(event) {
             // if(film.id == db.films){return}  
             console.log(film.id)
             addDoc(colRef, {
-                    genre_ids: film.genres,
-                    poster_path: film.poster_path,
-                    id: film.id,
-                    title: film.original_title,
-                    release_date: film.release_date,
-                    vote_average: film.vote_average,
-                    status: 'queue',
-                    user: userEmail,
+                genre_ids: film.genres,
+                poster_path: film.poster_path,
+                id: film.id,
+                title: film.original_title,
+                release_date: film.release_date,
+                vote_average: film.vote_average,
+                status: 'queue',
+                user: userEmail,
 
-                })
+            })
                 .then(() => {
                     Notiflix.Notify.info('ADD FILM TO QUEUE')
 
