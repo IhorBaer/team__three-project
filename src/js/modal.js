@@ -14,6 +14,7 @@ import {
 import { userEmail } from './authentication';
 import { renderListCard } from './base/render';
 import { openModal } from './auth-modal';
+
 // console.log(renderListCard());
 // console.log(userEmail)
 
@@ -56,7 +57,42 @@ refs.closeModalBtn.addEventListener('click', onCloseModal);
 refs.backdrop.addEventListener('click', onBackdropClick);
 
 async function onOpenModal(event) {
-    event.preventDefault();
+
+  event.preventDefault();
+
+  if (event.target === event.currentTarget) {
+    return;
+  }
+
+  window.addEventListener('keydown', onEscKeyPress);
+  refs.backdrop.classList.remove('visually-hidden');
+  document.body.classList.add('modal-open');
+
+  filmApi.movieId = event.target.dataset.id;
+  const film = await filmApi.getMovieInFoBuyId();
+  // console.log(film.id);
+  console.log(film)
+  refs.modal.insertAdjacentHTML('afterbegin', makeFilmModalMarkup(film));
+  const activeBot = document.querySelector('.current-link.libric');
+  const btnW = document.querySelector('.btnW');
+  const btnQdisr = document.querySelector('.btnQdis')
+
+  if (activeBot) {
+    // const btnW = document.querySelector('.btnW');
+    btnW.classList.add('display-none');
+    btnQdisr.classList.add('display-none');
+    document.querySelector('.btnWdelete').classList.remove('display-none')
+    document.querySelector('.btnQdelete').classList.remove('display-none')
+  }
+
+  btnW.addEventListener('click', () => {
+    if (!userEmail) {
+      openModal()
+    }
+
+    if (userEmail) {
+      btnW.setAttribute('disabled', true);
+
 
     if (event.target === event.currentTarget) {
         return;
@@ -208,7 +244,10 @@ export function makeFilmModalMarkup({
 
                 <div class="modal__button-container">
                     <button type="submit" class="modal__button btnW" data-id=${id}>ADD TO WATCHED</button>
-                    <button type="submit" class="modal__button btnQ" data-id=${id}>ADD TO QUEUE</button>
+                    <button type="submit" class="modal__button btnQ btnQdis" data-id=${id}>ADD TO QUEUE</button>
+
+                    <button type="submit" class="modal__button display-none btnWdelete" data-id=${id}>DELETE TO WATCHED</button>
+                    <button type="submit" class="modal__button display-none btnQdelete" data-id=${id}>DELETE TO QUEUE</button>
                 </div>
             </div>`;
 }
