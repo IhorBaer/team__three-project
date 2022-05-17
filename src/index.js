@@ -11,4 +11,5 @@ import './js/auth-modal';
 import './js/authentication';
 import './js/search-film';
 import './js/scroll';
-import './js/base/loader';
+// import './js/base/loader';
+import './js/base/loading';
