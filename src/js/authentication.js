@@ -5,7 +5,10 @@ import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     getMultiFactorResolver,
-    onAuthStateChanged
+    onAuthStateChanged,
+    signOut,
+    setPersistence,
+    browserSessionPersistence,
 } from 'firebase/auth'
 import Notiflix from 'notiflix';
 // import { movieApiService } from './render_movies';
@@ -22,11 +25,12 @@ import FetchApi from './api/fetch_movies'
 // import itemsTemplate from '../../template/movie-item.hbs';
 // import { async } from '@firebase/util';
 
-export let userEmail = ""
-const dataData = new FetchApi()
-const modal = document.querySelector('.auth-modal')
-const openModal = document.querySelector('.open_auth-js')
-const logIn = document.querySelector('.login-header')
+export let userEmail = "";
+const dataData = new FetchApi();
+const modal = document.querySelector('.auth-modal');
+const openModal = document.querySelector('.open_auth-js');
+const logIn = document.querySelector('#login-header');
+const logOut = document.querySelector('#logout-header');
 // console.log(openModal)
 const shipRef = document.querySelector('.ship')
 // const firebaseConfig = {
@@ -54,7 +58,7 @@ const db = getFirestore()
 const colRef = collection(db, 'films')
 const auth = getAuth();
 // console.log(auth.currentUser)
-
+setPersistence(auth, browserSessionPersistence);
 // дані для відмальовування бібліотеки перемінна films 
 // import { films } from "module-name";
 let films = [];
@@ -333,10 +337,11 @@ document.getElementById("login").addEventListener('click', function () {
             Notiflix.Notify.info(`You are logged in ${email}`);
             // modal.classList.add('visually-hidden');
             closeModal()
-            logIn.textContent = 'Log OUT';
-            logIn.classList.remove('login-header')
-            logIn.classList.add('logout-header')
 
+            // logIn.textContent = 'Log OUT';
+            // logIn.classList.remove('login-header')
+            // logIn.classList.add('logout-header')
+            ////////////////////////////////////////////////////////////////////////////////////////
 
         })
         .catch((error) => {
@@ -408,3 +413,17 @@ function dataFormat(data, genres) {
 //     const markup = itemsTemplate({...data });
 //     refs.gallery_films.innerHTML(markup);
 // }
+
+logOut.addEventListener('click', () => {
+    signOut(auth)
+        .then(() => {
+            console.log('вийшов з аккаунту');
+        }).catch((err) => {
+            console.log(err.message)
+        })
+});
+
+onAuthStateChanged(auth, (user) => {
+    console.log('Юзер залишається на сайті', user)
+});
+
