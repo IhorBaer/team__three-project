@@ -1,58 +1,110 @@
-# Parcel boilerplate
+# Filmoteka
 
-## Скрытые файлы
+## English
 
-Включите отображение скрытых файлов и папок в проводнике своей операционной системы, иначе вы не
-сможете выбрать и скопировать себе файлы настроек проекта, имена которых начинаются с точки.
+Movie search and personal movie library app built as a GoIT team project.
 
-## Зависимости
+- Live demo: https://ihorbaer.github.io/team__three-project/
+- Repository: https://github.com/IhorBaer/team__three-project
 
-На компьютере должена быть установлена LTS-версия [Node.js](https://nodejs.org/en/) со всеми
-дополнительными инструментами кроме **Chocolatey** - его ставить не нужно.
+### My Role
 
-## Перед началом работы
+Team Lead.
 
-Один раз на проект установить все зависимости.
+I coordinated the team workflow, helped organize tasks, supported GitHub-based collaboration,
+and contributed to implementation and project quality control.
 
-```shell
+### Features
+
+- Movie search and popular movie listing
+- Movie details modal
+- Pagination
+- Dark theme switcher
+- Authentication modal
+- Personal movie library features using Firebase
+- Responsive layout
+- GitHub Pages deployment
+
+### Tech Stack
+
+- HTML
+- SCSS
+- JavaScript
+- Parcel
+- Axios
+- Firebase
+- Notiflix
+- TUI Pagination
+- GitHub Pages
+
+### Run Locally
+
+```bash
 npm ci
-```
-
-### Разработка
-
-Запустить режим разработки.
-
-```shell
 npm run dev
 ```
 
-Во вкладке браузера перейти по адресу [http://localhost:1234](http://localhost:1234).
+### Build
 
-### Деплой
-
-Сборка будет автоматически собирать и деплоить продакшен версию проекта на GitHub Pages, в ветку
-`gh-pages`, каждый раз когда обновляется ветка `main`. Например, после прямого пуша или принятого
-пул-реквеста. Для этого необходимо в файле `package.json` отредактировать поле `homepage` и скрипт
-`build`, заменив `имя_пользователя` и `имя_репозитория` на свои.
-
-```json
-"homepage": "https://имя_пользователя.github.io/имя_репозитория",
-"scripts": {
-  "build": "parcel build src/*.html --public-url /имя_репозитория/"
-},
+```bash
+npm run build
 ```
 
-На всякий случай стоит зайти в настройки репозитория `Settings` > `Pages` и убедиться что продакшен
-версии файлов раздаются из папки `/root` ветки `gh-pages`.
+### Notes
 
-Через какое-то время живую страницу можно будет посмотреть по адресу указанному в отредактированном
-свойстве `homepage`, например
-[https://goitacademy.github.io/parcel-project-template](https://goitacademy.github.io/parcel-project-template).
+This is an educational team project from the GoIT Full Stack Web Development course.
 
-## Файлы и папки
+## Deutsch
 
-- Все паршалы файлов стилей должны лежать в папке `src/sass` и импортироваться в
-  `src/sass/main.scss`
-- Изображения добавляйте в папку `src/images`, заранее оптимизировав их. Сборщик просто копирует
-  используемые изображения чтобы не нагружать систему оптимизацией картинок, так как на слабых
-  компьютерах это может занять много времени.
+Filmoteka ist eine Film-Such-App mit persönlicher Filmbibliothek. Das Projekt wurde im Rahmen
+eines GoIT-Teamprojekts umgesetzt.
+
+- Live-Demo: https://ihorbaer.github.io/team__three-project/
+- Repository: https://github.com/IhorBaer/team__three-project
+
+### Meine Rolle
+
+Team Lead.
+
+Ich habe die Teamarbeit koordiniert, Aufgaben mitorganisiert, die Zusammenarbeit über GitHub
+unterstützt und an Umsetzung sowie Qualitätskontrolle mitgearbeitet.
+
+### Funktionen
+
+- Filmsuche und Anzeige populärer Filme
+- Modal mit Filmdetails
+- Pagination
+- Dark-Theme-Umschalter
+- Authentifizierungsmodal
+- Persönliche Filmbibliothek mit Firebase
+- Responsives Layout
+- Deployment über GitHub Pages
+
+### Tech Stack
+
+- HTML
+- SCSS
+- JavaScript
+- Parcel
+- Axios
+- Firebase
+- Notiflix
+- TUI Pagination
+- GitHub Pages
+
+### Lokal Starten
+
+```bash
+npm ci
+npm run dev
+```
+
+### Build
+
+```bash
+npm run build
+```
+
+### Hinweis
+
+Dies ist ein Bildungsprojekt aus dem GoIT Full Stack Web Development Kurs.
